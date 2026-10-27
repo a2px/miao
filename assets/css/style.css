@@ -1469,7 +1469,8 @@ h2 { font-weight: 800; letter-spacing: -.02em; }
 .door__handle { border-radius: 0; }
 
 /* the upper walls are pale, so the neon needs saturated tubes to read against a light wall */
-.neon, .neon__ears { color: #5b4cf5; }
-.neon__ears { filter: drop-shadow(0 0 4px rgba(108, 92, 255, .75)) drop-shadow(0 0 14px rgba(108, 92, 255, .5)); }
-.neon__word { color: #6352ff; text-shadow: 0 0 2px #dcd6ff, 0 0 10px rgba(108, 92, 255, .8), 0 0 28px rgba(80, 110, 255, .55); }
-.neon__sub { color: #2f62d8; text-shadow: 0 0 8px rgba(47, 98, 216, .45); }
+/* dark purple-black letters with a bright blue-purple glow around them */
+.neon, .neon__ears { color: #1d1430; }
+.neon__ears { filter: drop-shadow(0 0 4px #8a7dff) drop-shadow(0 0 12px #6c5cff) drop-shadow(0 0 26px rgba(80, 110, 255, .75)); }
+.neon__word { color: #1d1430; text-shadow: 0 0 4px #8a7dff, 0 0 12px #6c5cff, 0 0 26px rgba(108, 92, 255, .95), 0 0 56px rgba(80, 110, 255, .7); }
+.neon__sub { color: #241a3d; text-shadow: 0 0 3px #8a7dff, 0 0 10px rgba(108, 92, 255, .8); }
