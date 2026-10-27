@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Pixelify+Sans:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/pixel-frames.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <script src="assets/js/config.js" defer></script>
   <script src="assets/js/main.js" defer></script>
@@ -70,70 +71,17 @@
               <div class="ceiling" aria-hidden="true"></div>
               <div class="floor" aria-hidden="true"></div>
 
-              <!-- left wall: rainy window with a cat on the sill -->
+              <!-- left wall: vinyl record wall under hanging wisteria -->
               <div class="wall wall--left" aria-hidden="true">
                 <div class="wall__trim"></div>
-                <svg class="window" viewBox="0 0 400 320" focusable="false">
-                  <defs>
-                    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0" stop-color="#140c3d"/>
-                      <stop offset=".55" stop-color="#3a2a8f"/>
-                      <stop offset="1" stop-color="#b061b8"/>
-                    </linearGradient>
-                    <radialGradient id="moonglow">
-                      <stop offset="0" stop-color="#fff6d8" stop-opacity=".9"/>
-                      <stop offset="1" stop-color="#fff6d8" stop-opacity="0"/>
-                    </radialGradient>
-                    <clipPath id="glass"><rect x="20" y="20" width="360" height="262" rx="4"/></clipPath>
-                  </defs>
-                  <rect x="0" y="0" width="400" height="320" rx="10" fill="#120a2c"/>
-                  <g clip-path="url(#glass)">
-                    <rect x="20" y="20" width="360" height="262" fill="url(#sky)"/>
-                    <circle cx="300" cy="80" r="60" fill="url(#moonglow)"/>
-                    <circle cx="300" cy="80" r="22" fill="#fff3d1"/>
-                    <circle cx="292" cy="74" r="4" fill="#efdcae"/>
-                    <g fill="#fff" opacity=".85"><circle cx="60" cy="50" r="1.4"/><circle cx="130" cy="38" r="1"/><circle cx="210" cy="60" r="1.3"/><circle cx="355" cy="140" r="1"/><circle cx="90" cy="100" r="1"/><circle cx="240" cy="110" r="1.2"/></g>
-                    <!-- far skyline -->
-                    <path d="M20 282V190h22v-20h18v30h16v-44h24v52h14v-28h30v40h20v-62h12v-12h10v74h26v-36h20v24h18v-54h28v62h20v-30h26v40h20v-24h18v100z" fill="#2a1d6e"/>
-                    <!-- near skyline with lit windows -->
-                    <path d="M20 282v-60h34v-26h30v86zM96 282v-74h40v74zM150 282v-50h26v-22h34v72zM226 282v-96h44v96zM282 282v-58h38v58zM330 282v-80h50v80z" fill="#1a1150"/>
-                    <g fill="#ffc56e"><rect x="30" y="232" width="6" height="8"/><rect x="62" y="210" width="6" height="8"/><rect x="104" y="220" width="6" height="8"/><rect x="118" y="244" width="6" height="8"/><rect x="236" y="198" width="6" height="8"/><rect x="252" y="230" width="6" height="8"/><rect x="292" y="236" width="6" height="8"/><rect x="340" y="214" width="6" height="8"/><rect x="360" y="250" width="6" height="8"/></g>
-                    <g fill="#ff7ac0"><rect x="160" y="240" width="6" height="8"/><rect x="190" y="222" width="6" height="8"/><rect x="306" y="256" width="6" height="8"/><rect x="246" y="258" width="6" height="8"/></g>
-                    <g class="rain" stroke="#c9d7ff" stroke-width="1.4" stroke-linecap="round" opacity=".55">
-                      <path d="M40 0l-8 26M90 30l-8 26M140 -10l-8 26M190 40l-8 26M240 0l-8 26M290 50l-8 26M340 10l-8 26M70 120l-8 26M120 150l-8 26M170 100l-8 26M220 170l-8 26M270 130l-8 26M320 180l-8 26M370 110l-8 26M60 220l-8 26M160 250l-8 26M260 230l-8 26M360 260l-8 26"/>
-                      <path d="M40 300l-8 26M90 330l-8 26M140 290l-8 26M190 340l-8 26M240 300l-8 26M290 350l-8 26M340 310l-8 26M70 420l-8 26M120 450l-8 26M170 400l-8 26M220 470l-8 26M270 430l-8 26M320 480l-8 26M370 410l-8 26M60 520l-8 26M160 550l-8 26M260 530l-8 26M360 560l-8 26"/>
-                    </g>
-                  </g>
-                  <!-- mullions -->
-                  <path d="M200 20v262M20 150h360" stroke="#120a2c" stroke-width="8"/>
-                  <!-- sill -->
-                  <rect x="4" y="282" width="392" height="24" rx="4" fill="#2b1c5e"/>
-                  <rect x="4" y="282" width="392" height="4" fill="#5b45b8"/>
-                  <!-- black cat on the sill -->
-                  <g class="sill-cat">
-                    <path d="M92 282c-6-22-4-44 10-58l-2-20 12 12h14l12-12-2 20c14 14 16 36 10 58z" fill="#08051a"/>
-                    <path d="M150 280c18 2 30-8 26-22" stroke="#08051a" stroke-width="8" fill="none" stroke-linecap="round"/>
-                    <g class="blink"><ellipse cx="111" cy="232" rx="3" ry="3.4" fill="#ffd36e"/><ellipse cx="129" cy="232" rx="3" ry="3.4" fill="#ffd36e"/></g>
-                  </g>
-                  <!-- little plant -->
-                  <path d="M318 282h28l-4-22h-20z" fill="#d36aa6"/>
-                  <path d="M332 262c-2-16-14-22-22-20 6 6 10 14 22 20zm0 0c2-18 12-26 22-24-6 8-10 16-22 24zm0 0c0-14 2-24 0-30-4 8-4 18 0 30z" fill="#5fcf9a"/>
-                </svg>
-                <!-- bookshelf under window -->
-                <svg class="shelf shelf--left" viewBox="0 0 400 80" focusable="false">
-                  <rect x="0" y="66" width="400" height="10" rx="3" fill="#3b2a7a"/>
-                  <g><rect x="20" y="20" width="14" height="46" fill="#ff7ac0"/><rect x="36" y="28" width="12" height="38" fill="#7fd8ff"/><rect x="50" y="14" width="16" height="52" fill="#ffc56e"/><rect x="68" y="24" width="10" height="42" fill="#9d86ff"/><rect x="80" y="30" width="14" height="36" fill="#5fcf9a"/><rect x="96" y="22" width="10" height="44" fill="#ff7ac0" transform="rotate(8 101 44)"/></g>
-                  <g><rect x="300" y="26" width="12" height="40" fill="#9d86ff"/><rect x="314" y="18" width="16" height="48" fill="#ff7ac0"/><rect x="332" y="30" width="12" height="36" fill="#ffc56e"/><circle cx="370" cy="54" r="12" fill="#2b1c5e"/><path d="M362 50h16v16h-16z" fill="#d36aa6"/></g>
-                </svg>
+                <img class="wisteria wisteria--left pixel" src="assets/img/pixel/wisteria.png" alt="" width="222" height="48" decoding="async">
+                <img class="records pixel" src="assets/img/pixel/record-wall.png" alt="" width="132" height="89" decoding="async">
               </div>
 
-              <!-- right wall: neon sign, string lights, menu board -->
+              <!-- right wall: neon sign, hanging wisteria, menu board -->
               <div class="wall wall--right" aria-hidden="true">
                 <div class="wall__trim"></div>
-                <svg class="lights" viewBox="0 0 1000 80" preserveAspectRatio="none" focusable="false">
-                  <path d="M0 10Q125 70 250 20T500 20T750 20T1000 10" stroke="#3b2a7a" stroke-width="3" fill="none"/>
-                  <g class="bulbs"><circle cx="60" cy="34" r="6" fill="#ffc56e"/><circle cx="150" cy="44" r="6" fill="#ff7ac0"/><circle cx="240" cy="22" r="6" fill="#7fd8ff"/><circle cx="330" cy="36" r="6" fill="#ffc56e"/><circle cx="420" cy="38" r="6" fill="#ff7ac0"/><circle cx="510" cy="20" r="6" fill="#7fd8ff"/><circle cx="600" cy="36" r="6" fill="#ffc56e"/><circle cx="690" cy="38" r="6" fill="#ff7ac0"/><circle cx="780" cy="22" r="6" fill="#7fd8ff"/><circle cx="870" cy="34" r="6" fill="#ffc56e"/><circle cx="950" cy="22" r="6" fill="#ff7ac0"/></g>
-                </svg>
+                <img class="wisteria wisteria--right pixel" src="assets/img/pixel/wisteria.png" alt="" width="222" height="48" decoding="async">
                 <div class="neon">
                   <svg class="neon__ears" viewBox="0 0 220 60" focusable="false"><path d="M30 58L48 8l30 34M190 58L172 8l-30 34" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/></svg>
                   <span class="neon__word">MIAO</span>
@@ -150,55 +98,15 @@
             </div>
 
             <!-- props: billboards standing in the room -->
-            <div class="prop prop--pendant prop--pendant-a" aria-hidden="true"><svg viewBox="0 0 120 300" focusable="false"><line x1="60" y1="0" x2="60" y2="200" stroke="#3b2a7a" stroke-width="3"/><path d="M28 230q32-50 64 0z" fill="#ffc56e"/><ellipse cx="60" cy="232" rx="34" ry="6" fill="#fff0c6"/><ellipse class="glow" cx="60" cy="250" rx="60" ry="40" fill="#ffc56e" opacity=".22"/></svg></div>
-            <div class="prop prop--pendant prop--pendant-b" aria-hidden="true"><svg viewBox="0 0 120 300" focusable="false"><line x1="60" y1="0" x2="60" y2="200" stroke="#3b2a7a" stroke-width="3"/><path d="M28 230q32-50 64 0z" fill="#ff7ac0"/><ellipse cx="60" cy="232" rx="34" ry="6" fill="#ffd9ee"/><ellipse class="glow" cx="60" cy="250" rx="60" ry="40" fill="#ff7ac0" opacity=".22"/></svg></div>
+            <div class="prop prop--pendant prop--pendant-a" aria-hidden="true"><img class="pixel" src="assets/img/pixel/pendant-amber.png" alt="" width="26" height="62" decoding="async"></div>
+            <div class="prop prop--pendant prop--pendant-b" aria-hidden="true"><img class="pixel" src="assets/img/pixel/pendant-pink.png" alt="" width="26" height="62" decoding="async"></div>
 
             <div class="prop prop--plant" aria-hidden="true">
-              <svg viewBox="0 0 160 260" focusable="false"><path d="M50 260h60l8-70H42z" fill="#2b1c5e"/><path d="M42 190h76v10H42z" fill="#5b45b8"/><g fill="#3fae84"><path d="M80 190C60 140 20 130 4 140c20 10 40 30 76 50z"/><path d="M80 190c10-60 50-80 74-74-16 14-34 40-74 74z"/><path d="M80 190c-6-60 4-110 20-130 6 30 2 80-20 130z"/><path d="M80 190C66 150 40 80 46 40c20 30 34 90 34 150z"/></g><g fill="#5fcf9a" opacity=".7"><path d="M80 190c10-60 50-80 74-74-30 4-50 30-74 74z"/><path d="M80 190C60 140 20 130 4 140c30-4 50 20 76 50z"/></g></svg>
+              <img class="pixel" src="assets/img/pixel/plant.png" alt="" width="34" height="54" decoding="async">
             </div>
 
             <div class="prop prop--table">
-              <svg class="prop__art" viewBox="0 0 440 300" aria-hidden="true" focusable="false">
-                <defs>
-                  <radialGradient id="screenglow"><stop offset="0" stop-color="#9fe3ff" stop-opacity=".55"/><stop offset="1" stop-color="#9fe3ff" stop-opacity="0"/></radialGradient>
-                </defs>
-                <!-- three students -->
-                <g class="person">
-                  <path d="M60 210c0-48 18-74 50-74s50 26 50 74z" fill="#1d1340"/>
-                  <circle cx="110" cy="110" r="26" fill="#1d1340"/>
-                  <path d="M84 104c2-22 16-32 30-32 18 0 28 14 26 36-8-10-28-14-56-4z" fill="#0b0720"/>
-                  <path d="M86 110a26 26 0 0 0 10 22" stroke="#ff7ac0" stroke-width="3" fill="none" opacity=".7"/>
-                  <rect x="78" y="96" width="8" height="18" rx="4" fill="#ff7ac0"/><rect x="134" y="96" width="8" height="18" rx="4" fill="#ff7ac0"/><path d="M82 98q28-34 56 0" stroke="#ff7ac0" stroke-width="4" fill="none"/>
-                </g>
-                <g class="person">
-                  <path d="M170 196c0-54 22-82 54-82s54 28 54 82z" fill="#22174a"/>
-                  <circle cx="224" cy="86" r="28" fill="#22174a"/>
-                  <path d="M196 80c0-26 14-36 30-36 20 0 30 16 28 40-2-14-30-20-58-4z" fill="#0b0720"/>
-                  <circle cx="224" cy="52" r="12" fill="#0b0720"/>
-                  <path d="M250 74a28 28 0 0 1 -4 32" stroke="#7fd8ff" stroke-width="3" fill="none" opacity=".8"/>
-                </g>
-                <g class="person">
-                  <path d="M290 210c0-48 18-74 50-74s50 26 50 74z" fill="#1d1340"/>
-                  <circle cx="340" cy="110" r="26" fill="#1d1340"/>
-                  <path d="M312 112c-2-26 12-40 30-40s30 14 28 40c-6-16-24-22-58 0z" fill="#0b0720"/>
-                  <path d="M364 106a26 26 0 0 1 -8 26" stroke="#ffc56e" stroke-width="3" fill="none" opacity=".8"/>
-                </g>
-                <!-- table -->
-                <ellipse cx="220" cy="214" rx="200" ry="34" fill="#2b1c5e"/>
-                <ellipse cx="220" cy="208" rx="200" ry="34" fill="#4a35a0"/>
-                <path d="M40 208a180 30 0 0 0 360 0" stroke="#7a62e0" stroke-width="2" fill="none" opacity=".6"/>
-                <rect x="208" y="240" width="24" height="50" fill="#1a1138"/>
-                <ellipse cx="220" cy="292" rx="60" ry="8" fill="#1a1138"/>
-                <!-- laptops -->
-                <ellipse cx="120" cy="170" rx="70" ry="40" fill="url(#screenglow)"/>
-                <path d="M92 196l8-40h50l-8 40z" fill="#b9e9ff"/><path d="M84 198h66l4 6H80z" fill="#cfd6f5"/>
-                <ellipse cx="330" cy="170" rx="70" ry="40" fill="url(#screenglow)"/>
-                <path d="M306 196l-8-40h50l8 40z" fill="#b9e9ff"/><path d="M296 198h66l4 6h-74z" fill="#cfd6f5"/>
-                <!-- books and boba -->
-                <path d="M182 196l10-16h56l10 16z" fill="#f7f0e3"/><path d="M196 186h48M190 192h60" stroke="#6d58c9" stroke-width="2"/><rect x="198" y="168" width="14" height="14" rx="3" fill="#f7f0e3" transform="rotate(14 205 175)"/><circle cx="205" cy="175" r="2" fill="#2b1a45"/><rect x="226" y="170" width="13" height="13" rx="3" fill="#ff7ac0" transform="rotate(-10 232 176)"/><circle cx="229" cy="173" r="1.6" fill="#2b1a45"/><circle cx="235" cy="179" r="1.6" fill="#2b1a45"/>
-                <g><path d="M262 172h20l-3 30h-14z" fill="#e8d6ff" opacity=".9"/><path d="M264 190h16l-1 12h-14z" fill="#3a1f2f"/><circle cx="268" cy="198" r="2" fill="#120a1c"/><circle cx="275" cy="196" r="2" fill="#120a1c"/><rect x="273" y="156" width="3" height="20" fill="#ff7ac0" transform="rotate(10 274 166)"/></g>
-                <g><path d="M164 176h18l-3 26h-12z" fill="#c9b6ff" opacity=".9"/><path d="M166 190h14l-1 12h-12z" fill="#7a4aa8"/><rect x="172" y="160" width="3" height="18" fill="#7fd8ff"/></g>
-              </svg>
+              <img class="prop__art pixel" src="assets/img/pixel/table.png" alt="" width="90" height="62" decoding="async">
               <a class="bubble bubble--review" href="#reviews">
                 <span class="bubble__tag">Reviews</span>
                 <span class="bubble__text"><svg class="icon bubble__star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg> 4.9 <span class="visually-hidden">out of 5 stars,</span> &ldquo;my go-to study spot&rdquo;</span>
@@ -206,44 +114,7 @@
             </div>
 
             <div class="prop prop--couch">
-              <svg class="prop__art" viewBox="0 0 440 280" aria-hidden="true" focusable="false">
-                <!-- floor lamp -->
-                <line x1="410" y1="40" x2="410" y2="270" stroke="#3b2a7a" stroke-width="5"/>
-                <path d="M386 50q24-40 48 0z" fill="#ffc56e"/>
-                <ellipse class="glow" cx="410" cy="70" rx="60" ry="40" fill="#ffc56e" opacity=".2"/>
-                <!-- couch back -->
-                <path d="M20 170c0-60 20-80 60-80h260c40 0 60 20 60 80z" fill="#6a2a7a"/>
-                <!-- two friends -->
-                <g class="person">
-                  <path d="M90 200c0-50 18-76 52-76s52 26 52 76z" fill="#1d1340"/>
-                  <circle cx="142" cy="98" r="26" fill="#1d1340"/>
-                  <path d="M116 96c-2-24 12-36 28-36 20 0 30 16 26 42-4-14-26-20-54-6z" fill="#0b0720"/>
-                  <path d="M118 124c-6 14-6 30 0 44" stroke="#0b0720" stroke-width="16" stroke-linecap="round"/>
-                  <!-- phone up for the photo -->
-                  <path d="M178 150l30-50" stroke="#1d1340" stroke-width="14" stroke-linecap="round"/>
-                  <rect x="196" y="70" width="22" height="36" rx="4" fill="#0b0720" transform="rotate(14 207 88)"/>
-                  <circle class="flash" cx="210" cy="78" r="5" fill="#fff"/>
-                </g>
-                <g class="person">
-                  <path d="M236 200c0-50 18-76 52-76s52 26 52 76z" fill="#22174a"/>
-                  <circle cx="288" cy="98" r="26" fill="#22174a"/>
-                  <path d="M262 92c4-22 16-30 30-30 18 0 28 12 24 34-10-8-28-12-54-4z" fill="#0b0720"/>
-                  <path d="M312 92a26 26 0 0 1 -6 28" stroke="#ff7ac0" stroke-width="3" fill="none" opacity=".8"/>
-                  <!-- peace sign hand -->
-                  <path d="M250 150l-10-32" stroke="#22174a" stroke-width="12" stroke-linecap="round"/>
-                  <path d="M240 118l-6-14M240 118l2-15" stroke="#22174a" stroke-width="5" stroke-linecap="round"/>
-                </g>
-                <!-- seat + arms -->
-                <path d="M10 186c0-20 14-28 34-28h352c20 0 34 8 34 28v44H10z" fill="#8a3a9a"/>
-                <rect x="0" y="150" width="54" height="100" rx="26" fill="#7a3290"/>
-                <rect x="386" y="150" width="54" height="100" rx="26" fill="#7a3290"/>
-                <path d="M54 196h332" stroke="#a55bb5" stroke-width="3" opacity=".7"/>
-                <rect x="20" y="240" width="14" height="30" fill="#1a1138"/><rect x="406" y="240" width="14" height="30" fill="#1a1138"/>
-                <!-- boba cups on the arm -->
-                <g><path d="M404 124h22l-3 28h-16z" fill="#ffd9ee" opacity=".9"/><path d="M406 140h18l-1 12h-16z" fill="#5a2a3a"/><rect x="414" y="106" width="3" height="20" fill="#7fd8ff"/></g>
-                <!-- cushion -->
-                <rect x="60" y="150" width="50" height="40" rx="12" fill="#ff7ac0" transform="rotate(-10 85 170)"/>
-              </svg>
+              <img class="prop__art pixel" src="assets/img/pixel/couch.png" alt="" width="90" height="58" decoding="async">
               <a class="bubble bubble--insta" href="#social">
                 <span class="bubble__tag">Insta</span>
                 <span class="bubble__text">@miao_carrollton</span>
@@ -251,7 +122,7 @@
             </div>
 
             <div class="prop prop--cat" aria-hidden="true">
-              <svg viewBox="0 0 120 120" focusable="false"><path d="M30 118c-10-30-6-58 14-74l-4-26 18 16h20l18-16-4 26c20 16 24 44 14 74z" fill="#08051a"/><path d="M96 112c22 0 24-24 10-30" stroke="#08051a" stroke-width="9" fill="none" stroke-linecap="round"/><g class="blink"><ellipse cx="52" cy="60" rx="4" ry="5" fill="#9ff0c8"/><ellipse cx="76" cy="60" rx="4" ry="5" fill="#9ff0c8"/></g><path d="M60 70l4 3 4-3" stroke="#ff7ac0" stroke-width="2" fill="none"/></svg>
+              <img class="pixel" src="assets/img/pixel/cat.png" alt="" width="16" height="16" decoding="async">
             </div>
           </div>
         </div>
@@ -274,16 +145,8 @@
 
       <!-- first-person hands holding the menu -->
       <div class="hands">
-        <svg class="arm arm--left" viewBox="0 0 220 360" aria-hidden="true" focusable="false">
-          <path d="M40 360L70 170q6-30 40-30h40q30 0 34 30l20 190z" fill="#5b45b8"/>
-          <path d="M70 170q6-30 40-30h40q30 0 34 30" fill="none" stroke="#7a62e0" stroke-width="10"/>
-          <path d="M66 150q-6-60 30-70l64-6q30 0 30 34l-6 46z" fill="#c98e6b"/>
-        </svg>
-        <svg class="arm arm--right" viewBox="0 0 220 360" aria-hidden="true" focusable="false">
-          <path d="M180 360L150 170q-6-30-40-30H70q-30 0-34 30L16 360z" fill="#5b45b8"/>
-          <path d="M150 170q-6-30-40-30H70q-30 0-34 30" fill="none" stroke="#7a62e0" stroke-width="10"/>
-          <path d="M154 150q6-60-30-70l-64-6q-30 0-30 34l6 46z" fill="#c98e6b"/>
-        </svg>
+        <img class="arm arm--left pixel" src="assets/img/pixel/arm-left.png" alt="" width="57" height="92" decoding="async">
+        <img class="arm arm--right pixel" src="assets/img/pixel/arm-right.png" alt="" width="57" height="92" decoding="async">
         <nav class="menu-card" aria-labelledby="menu-card-title">
           <p class="menu-card__title" id="menu-card-title">Menu</p>
           <ul>
@@ -293,8 +156,8 @@
           </ul>
           <a class="menu-card__all" href="#menu">How it works</a>
         </nav>
-        <svg class="thumb thumb--left" viewBox="0 0 60 90" aria-hidden="true" focusable="false"><path d="M14 90V30q0-22 18-22t18 22v60z" fill="#d9a07c"/><path d="M22 22q8-8 18 0" stroke="#f0c2a2" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
-        <svg class="thumb thumb--right" viewBox="0 0 60 90" aria-hidden="true" focusable="false"><path d="M14 90V30q0-22 18-22t18 22v60z" fill="#d9a07c"/><path d="M22 22q8-8 18 0" stroke="#f0c2a2" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
+        <img class="thumb thumb--left pixel" src="assets/img/pixel/thumb.png" alt="" width="22" height="32" decoding="async">
+        <img class="thumb thumb--right pixel" src="assets/img/pixel/thumb.png" alt="" width="22" height="32" decoding="async">
       </div>
 
       <a class="scroll-hint" href="#vibe"><span>Look around</span><span aria-hidden="true" class="scroll-hint__arrow"></span></a>
@@ -594,6 +457,7 @@
   <footer class="footer" id="contact" aria-labelledby="contact-title" tabindex="-1">
     <div class="container footer__grid">
       <div>
+        <img class="footer__logo" src="assets/img/miao-logo.png" alt="Miao" width="900" height="260" loading="lazy">
         <p class="eyebrow">Say hi</p>
         <h2 id="contact-title">Contact</h2>
         <ul class="contact-list" role="list">

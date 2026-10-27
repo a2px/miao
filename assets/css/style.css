@@ -287,7 +287,7 @@ p { margin: 0 0 1em; }
   isolation: isolate;
   /* behind the walls: ceiling dark on top, floor below the horizon */
   background:
-    linear-gradient(to bottom, #120a30 0%, #1a1145 var(--horizon-pct, 46%), #241653 var(--horizon-pct, 46%), #2d1c63 100%);
+    linear-gradient(to bottom, #0d0c10 0%, #17161b var(--horizon-pct, 46%), #211c29 var(--horizon-pct, 46%), #2a2433 100%);
 }
 
 .scene { position: absolute; inset: 0; pointer-events: none; }
@@ -339,16 +339,16 @@ p { margin: 0 0 1em; }
 .wall--left {
   left: calc(var(--wall-w) * -1);
   background:
-    linear-gradient(to left, rgba(10, 5, 30, .55), rgba(10, 5, 30, 0) 40%),
-    linear-gradient(to bottom, #2c1e66 0%, #33237a 62%, #251a5a 62%, #22174f 100%);
+    linear-gradient(to left, rgba(0, 0, 0, .5), rgba(0, 0, 0, 0) 40%),
+    linear-gradient(to bottom, #26242b 0%, #2b2930 62%, #17161b 62%, #141317 100%);
 }
 .wall--right {
   left: 0;
   transform-origin: 0 50%;
   transform: rotateY(-90deg);
   background:
-    linear-gradient(to right, rgba(10, 5, 30, .6), rgba(10, 5, 30, 0) 40%),
-    linear-gradient(to bottom, #261a5c 0%, #2c1f6c 62%, #1f1550 62%, #1c1347 100%);
+    linear-gradient(to right, rgba(0, 0, 0, .55), rgba(0, 0, 0, 0) 40%),
+    linear-gradient(to bottom, #1f1d23 0%, #232127 62%, #121115 62%, #0f0e12 100%);
 }
 /* wainscot rail */
 .wall__trim {
@@ -356,8 +356,8 @@ p { margin: 0 0 1em; }
   left: 0; right: 0;
   top: 62%;
   height: 10px;
-  background: #4a35a0;
-  box-shadow: 0 2px 0 #160e35;
+  background: #3d3944;
+  box-shadow: 0 4px 0 #0b0a0d, 0 -4px 0 #4d4855;
 }
 
 .floor {
@@ -369,7 +369,7 @@ p { margin: 0 0 1em; }
   transform-origin: 50% 0;
   transform: rotateX(90deg);
   background:
-    repeating-conic-gradient(#2d1c63 0 25%, #251754 0 50%) 0 0 / 110px 110px;
+    repeating-conic-gradient(#2a2433 0 25%, #211c29 0 50%) 0 0 / 110px 110px;
 }
 .floor::after {
   content: "";
@@ -385,13 +385,15 @@ p { margin: 0 0 1em; }
   transform-origin: 50% 100%;
   transform: rotateX(-90deg);
   background:
-    repeating-linear-gradient(90deg, #160e38 0 6px, #1b1244 6px 120px);
+    repeating-linear-gradient(90deg, #0d0c10 0 10px, #141318 10px 120px);
 }
 
 /* wall decorations */
-.window { position: absolute; left: 470px; top: 90px; width: 440px; height: auto; filter: drop-shadow(0 0 40px rgba(176, 97, 184, .45)); }
-.shelf--left { position: absolute; left: 470px; top: 470px; width: 440px; }
-.lights { position: absolute; left: 0; top: 20px; width: 100%; height: 80px; }
+.records { position: absolute; left: 420px; top: 150px; width: 528px; height: auto; }
+.wisteria { position: absolute; top: -6px; width: 72%; height: auto; z-index: 1; }
+/* hang along the back of each wall, nearest the corner */
+.wisteria--left { right: 0; }
+.wisteria--right { left: 0; transform: scaleX(-1); }
 .neon {
   position: absolute;
   left: 110px; top: 150px;
@@ -440,13 +442,13 @@ p { margin: 0 0 1em; }
   height: var(--h);
   transform: translate3d(var(--x), var(--y, 0px), var(--z));
 }
-.prop > svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.prop > svg, .prop > img { display: block; width: 100%; height: 100%; overflow: visible; }
 
-.prop--table  { --w: 460px; --h: 314px; --x: -330px; --z: -260px; }
-.prop--couch  { --w: 460px; --h: 293px; --x: 330px;  --z: -300px; }
-.prop--plant  { --w: 170px; --h: 276px; --x: 0px;    --z: -640px; }
+.prop--table  { --w: 460px; --h: 317px; --x: -330px; --z: -260px; }
+.prop--couch  { --w: 460px; --h: 296px; --x: 330px;  --z: -300px; }
+.prop--plant  { --w: 170px; --h: 270px; --x: 0px;    --z: -640px; }
 .prop--cat    { --w: 90px;  --h: 90px;  --x: 150px;  --z: -120px; }
-.prop--pendant { --w: 120px; --h: 300px; top: calc(var(--wall-h) / -2); }
+.prop--pendant { --w: 120px; --h: 286px; top: calc(var(--wall-h) / -2); }
 .prop--pendant-a { --x: -120px; --z: -300px; }
 .prop--pendant-b { --x: 300px;  --z: -330px; }
 
@@ -706,7 +708,7 @@ p { margin: 0 0 1em; }
   bottom: 0;
   width: calc(var(--door-w) * 2);
   transform: translateX(-50%);
-  box-shadow: 0 0 0 200vmax #22174f;
+  box-shadow: 0 0 0 200vmax #1c1a21;
 }
 .doors::after {
   content: "";
@@ -828,7 +830,8 @@ p { margin: 0 0 1em; }
 .js .hero[data-state="ready"] .loader__bar,
 .js .hero[data-state="ready"] .loader__tip,
 .js .hero[data-state="ready"] .loader__sub,
-.js .hero[data-state="ready"] .loader__title { display: none; }
+.js .hero[data-state="ready"] .loader__title,
+.js .hero[data-state="ready"] .loader__logo { display: none; }
 @keyframes pop { from { transform: scale(.6); opacity: 0; } }
 
 .intro__skip {
@@ -850,8 +853,8 @@ p { margin: 0 0 1em; }
 @media (max-aspect-ratio: 1/1) {
   .hero { --horizon-pct: 34%; }
   .doors { --door-w: 36vw; }
-  .prop--table { --w: 400px; --h: 273px; --x: -210px; --z: -330px; }
-  .prop--couch { --w: 400px; --h: 255px; --x: 230px; --z: -420px; }
+  .prop--table { --w: 400px; --h: 276px; --x: -210px; --z: -330px; }
+  .prop--couch { --w: 400px; --h: 258px; --x: 230px; --z: -420px; }
   .prop--cat { --x: 40px; --z: -300px; }
   .prop--pendant-a { --x: -150px; }
   .prop--pendant-b { --x: 160px; }
@@ -1372,3 +1375,81 @@ h2 { font-weight: 800; letter-spacing: -.02em; }
 .eyebrow, .footer__h, .hours__table thead th { font-weight: 700; letter-spacing: .14em; }
 .corner__meta { font-weight: 700; letter-spacing: .02em; }
 .promo__title, .price-card h3, .menu-sub { font-weight: 800; }
+
+.footer__logo { display: block; width: min(220px, 60vw); height: auto; margin-bottom: 28px; }
+
+/* pixel art: keep every art pixel square and crisp at any size */
+.pixel { image-rendering: pixelated; image-rendering: crisp-edges; }
+.prop--pendant img { filter: drop-shadow(0 18px 26px rgba(255, 197, 110, .45)); }
+.prop--pendant-b img { filter: drop-shadow(0 18px 26px rgba(255, 122, 192, .45)); }
+.prop--table img { filter: drop-shadow(0 -6px 24px rgba(159, 227, 255, .25)); }
+
+/* =========================================================
+   Pixel frames for the hero's game UI (frames from pixel-frames.css)
+   ========================================================= */
+.menu-card {
+  --u: 5px;
+  border-radius: 0;
+  border: calc(var(--u) * 3) solid transparent;
+  border-image: var(--frame-paper) 3 fill / calc(var(--u) * 3) stretch;
+  background: none;
+  box-shadow: none;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 -8px 40px rgba(255, 197, 110, .25)) drop-shadow(8px 8px 0 rgba(0, 0, 0, .35));
+}
+.menu-card ul a {
+  border: 6px solid transparent;
+  border-radius: 0;
+  border-image: var(--frame-paper-row) 2 fill / 6px stretch;
+  background: none;
+  image-rendering: pixelated;
+}
+.menu-card ul a:hover { background: none; border-image-source: var(--frame-paper-row-hover); }
+
+.hud__quest, .hud__status {
+  border-radius: 0;
+  border: 12px solid transparent;
+  border-image: var(--frame-panel) 3 fill / 12px stretch;
+  background: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  padding: 2px 6px;
+  image-rendering: pixelated;
+}
+.hud__locate { border-radius: 0; box-shadow: 0 0 0 0; border-width: 3px; }
+
+.chalkboard {
+  border-radius: 0;
+  border: 32px solid transparent;
+  border-image: var(--frame-wood) 4 fill / 32px stretch;
+  background: none;
+  padding: 10px 14px;
+  image-rendering: pixelated;
+}
+
+.loader__enter {
+  border-radius: 0;
+  border: 12px solid transparent;
+  border-image: var(--frame-amber) 3 fill / 12px stretch;
+  background: none;
+  box-shadow: none;
+  padding: 4px 14px;
+  image-rendering: pixelated;
+}
+.loader__enter:hover { background: none; border-image-source: var(--frame-amber-hover); }
+.loader__key { border-radius: 0; }
+.intro__skip {
+  border-radius: 0;
+  border: 12px solid transparent;
+  border-image: var(--frame-panel) 3 fill / 12px stretch;
+  background: none;
+  padding: 0 8px;
+  image-rendering: pixelated;
+}
+.loader__bar { border-radius: 0; }
+
+/* doors: blocky frame and glass to match the room */
+.door { border-radius: 0; box-shadow: inset -10px 0 0 rgba(0, 0, 0, .25), inset 10px 0 0 rgba(255, 255, 255, .06); }
+.door__glass { border-width: 8px; box-shadow: inset 0 -10px 0 rgba(255, 79, 168, .35), inset 0 10px 0 rgba(255, 255, 255, .25); }
+.door__handle { border-radius: 0; }

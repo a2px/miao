@@ -1,0 +1,86 @@
+{
+ "arm-left": {
+  "pixels": [
+   57,
+   92
+  ],
+  "source_units_per_pixel": 4
+ },
+ "arm-right": {
+  "pixels": [
+   57,
+   92
+  ],
+  "source_units_per_pixel": 4
+ },
+ "couch": {
+  "pixels": [
+   90,
+   58
+  ],
+  "source_units_per_pixel": 5
+ },
+ "pendant-amber": {
+  "pixels": [
+   26,
+   62
+  ],
+  "source_units_per_pixel": 5
+ },
+ "pendant-pink": {
+  "pixels": [
+   26,
+   62
+  ],
+  "source_units_per_pixel": 5
+ },
+ "plant": {
+  "pixels": [
+   34,
+   54
+  ],
+  "source_units_per_pixel": 5
+ },
+ "record-wall": {
+  "pixels": [
+   132,
+   89
+  ],
+  "source_units_per_pixel": 4
+ },
+ "shelf": {
+  "pixels": [
+   82,
+   18
+  ],
+  "source_units_per_pixel": 5
+ },
+ "table": {
+  "pixels": [
+   90,
+   62
+  ],
+  "source_units_per_pixel": 5
+ },
+ "thumb": {
+  "pixels": [
+   22,
+   32
+  ],
+  "source_units_per_pixel": 3
+ },
+ "wisteria": {
+  "pixels": [
+   222,
+   48
+  ],
+  "source_units_per_pixel": null
+ },
+ "cat": {
+  "pixels": [
+   16,
+   16
+  ],
+  "source_units_per_pixel": null
+ }
+}
