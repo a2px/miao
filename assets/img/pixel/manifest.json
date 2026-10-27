@@ -48,13 +48,6 @@
   ],
   "source_units_per_pixel": 4
  },
- "shelf": {
-  "pixels": [
-   82,
-   18
-  ],
-  "source_units_per_pixel": 5
- },
  "table": {
   "pixels": [
    90,
@@ -69,10 +62,10 @@
   ],
   "source_units_per_pixel": 3
  },
- "wisteria": {
+ "string-lights": {
   "pixels": [
    222,
-   48
+   28
   ],
   "source_units_per_pixel": null
  },
