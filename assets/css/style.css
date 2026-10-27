@@ -465,7 +465,6 @@ p { margin: 0 0 1em; }
 .prop--table  { --w: 530px; --h: 365px; --x: -330px; --z: -260px; --ry: 45deg; --face: -45deg; }
 .prop--couch  { --w: 530px; --h: 341px; --x: 330px;  --z: -300px; --ry: -45deg; --face: 45deg; }
 .prop--plant  { --w: 170px; --h: 270px; --x: 0px;    --z: -640px; }
-.prop--cat    { --w: 90px;  --h: 90px;  --x: 150px;  --z: -120px; }
 
 /* speech-bubble hotspots (from the sketch), drawn as pixel-art bubbles */
 .bubble {
@@ -866,7 +865,6 @@ p { margin: 0 0 1em; }
   .doors { --door-w: 36vw; }
   .prop--table { --w: 460px; --h: 317px; --x: -210px; --z: -330px; }
   .prop--couch { --w: 460px; --h: 296px; --x: 230px; --z: -420px; }
-  .prop--cat { --x: 40px; --z: -300px; }
   .bubble { --u: 8px; font-size: 56px; min-width: 300px; padding: 12px 34px 14px; }
   .bubble__text { font-size: 24px; }
   .bubble--review { left: 62%; }

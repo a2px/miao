@@ -6,20 +6,6 @@
   ],
   "source_units_per_pixel": 5
  },
- "pendant-amber": {
-  "pixels": [
-   26,
-   62
-  ],
-  "source_units_per_pixel": 5
- },
- "pendant-pink": {
-  "pixels": [
-   26,
-   62
-  ],
-  "source_units_per_pixel": 5
- },
  "plant": {
   "pixels": [
    34,
@@ -71,8 +57,8 @@
  },
  "cat": {
   "pixels": [
-   16,
-   16
+   18,
+   18
   ],
   "source_units_per_pixel": null
  }
