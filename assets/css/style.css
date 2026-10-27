@@ -466,9 +466,6 @@ p { margin: 0 0 1em; }
 .prop--couch  { --w: 530px; --h: 341px; --x: 330px;  --z: -300px; --ry: -45deg; --face: 45deg; }
 .prop--plant  { --w: 170px; --h: 270px; --x: 0px;    --z: -640px; }
 .prop--cat    { --w: 90px;  --h: 90px;  --x: 150px;  --z: -120px; }
-.prop--pendant { --w: 120px; --h: 286px; top: calc(var(--wall-h) / -2); }
-.prop--pendant-a { --x: -120px; --z: -300px; }
-.prop--pendant-b { --x: 300px;  --z: -330px; }
 
 /* speech-bubble hotspots (from the sketch), drawn as pixel-art bubbles */
 .bubble {
@@ -870,8 +867,6 @@ p { margin: 0 0 1em; }
   .prop--table { --w: 460px; --h: 317px; --x: -210px; --z: -330px; }
   .prop--couch { --w: 460px; --h: 296px; --x: 230px; --z: -420px; }
   .prop--cat { --x: 40px; --z: -300px; }
-  .prop--pendant-a { --x: -150px; }
-  .prop--pendant-b { --x: 160px; }
   .bubble { --u: 8px; font-size: 56px; min-width: 300px; padding: 12px 34px 14px; }
   .bubble__text { font-size: 24px; }
   .bubble--review { left: 62%; }
@@ -1394,8 +1389,6 @@ h2 { font-weight: 800; letter-spacing: -.02em; }
 
 /* pixel art: keep every art pixel square and crisp at any size */
 .pixel { image-rendering: pixelated; image-rendering: crisp-edges; }
-.prop--pendant img { filter: drop-shadow(0 18px 26px rgba(255, 197, 110, .45)); }
-.prop--pendant-b img { filter: drop-shadow(0 18px 26px rgba(255, 122, 192, .45)); }
 .prop--table img { filter: drop-shadow(0 -6px 24px rgba(159, 227, 255, .25)); }
 
 /* =========================================================
