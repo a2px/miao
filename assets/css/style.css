@@ -339,16 +339,16 @@ p { margin: 0 0 1em; }
 .wall--left {
   left: calc(var(--wall-w) * -1);
   background:
-    linear-gradient(to left, rgba(40, 30, 20, .28), rgba(40, 30, 20, 0) 40%),
-    linear-gradient(to bottom, #e6dcc6 0%, #efe6d2 62%, #17161b 62%, #141317 100%);
+    linear-gradient(to left, rgba(20, 28, 48, .28), rgba(20, 28, 48, 0) 40%),
+    linear-gradient(to bottom, #d9dee8 0%, #e4e8ef 62%, #17161b 62%, #141317 100%);
 }
 .wall--right {
   left: 0;
   transform-origin: 0 50%;
   transform: rotateY(-90deg);
   background:
-    linear-gradient(to right, rgba(40, 30, 20, .32), rgba(40, 30, 20, 0) 40%),
-    linear-gradient(to bottom, #d9cfb8 0%, #e3d9c3 62%, #121115 62%, #0f0e12 100%);
+    linear-gradient(to right, rgba(20, 28, 48, .32), rgba(20, 28, 48, 0) 40%),
+    linear-gradient(to bottom, #ccd2de 0%, #d6dbe5 62%, #121115 62%, #0f0e12 100%);
 }
 /* wainscot rail */
 .wall__trim {
@@ -1468,7 +1468,7 @@ h2 { font-weight: 800; letter-spacing: -.02em; }
 .door__glass { border-width: 8px; box-shadow: inset 0 -10px 0 rgba(255, 79, 168, .35), inset 0 10px 0 rgba(255, 255, 255, .25); }
 .door__handle { border-radius: 0; }
 
-/* the upper walls are cream, so the neon needs saturated tubes to read against a light wall */
+/* the upper walls are pale, so the neon needs saturated tubes to read against a light wall */
 .neon, .neon__ears { color: #5b4cf5; }
 .neon__ears { filter: drop-shadow(0 0 4px rgba(108, 92, 255, .75)) drop-shadow(0 0 14px rgba(108, 92, 255, .5)); }
 .neon__word { color: #6352ff; text-shadow: 0 0 2px #dcd6ff, 0 0 10px rgba(108, 92, 255, .8), 0 0 28px rgba(80, 110, 255, .55); }
