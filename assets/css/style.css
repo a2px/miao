@@ -389,10 +389,10 @@ p { margin: 0 0 1em; }
 }
 
 /* wall decorations */
-.records { position: absolute; left: 420px; top: 150px; width: 528px; height: auto; }
+.records { position: absolute; left: 440px; top: 128px; width: 480px; height: auto; }
 .lights {
   position: absolute;
-  top: 18px;
+  top: 10px;
   width: 72%;
   height: auto;
   z-index: 1;
