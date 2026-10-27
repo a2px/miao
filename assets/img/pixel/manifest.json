@@ -1,18 +1,4 @@
 {
- "arm-left": {
-  "pixels": [
-   57,
-   92
-  ],
-  "source_units_per_pixel": 4
- },
- "arm-right": {
-  "pixels": [
-   57,
-   92
-  ],
-  "source_units_per_pixel": 4
- },
  "couch": {
   "pixels": [
    90,
@@ -55,14 +41,28 @@
   ],
   "source_units_per_pixel": 5
  },
- "thumb": {
+ "string-lights-wire": {
   "pixels": [
-   22,
-   32
+   222,
+   28
   ],
-  "source_units_per_pixel": 3
+  "source_units_per_pixel": null
  },
- "string-lights": {
+ "string-lights-1": {
+  "pixels": [
+   222,
+   28
+  ],
+  "source_units_per_pixel": null
+ },
+ "string-lights-2": {
+  "pixels": [
+   222,
+   28
+  ],
+  "source_units_per_pixel": null
+ },
+ "string-lights-3": {
   "pixels": [
    222,
    28
