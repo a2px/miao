@@ -1385,8 +1385,8 @@ h2 { font-weight: 800; letter-spacing: -.02em; }
   .fl--highlighter, .fl--charger, .fl--boba-c { display: none; }
   .fl--boba-a { left: 7%; top: calc(var(--nav-h) + 196px); }
   .fl--boba-b { right: 7%; top: calc(var(--nav-h) + 196px); }
-  .fl--vinyl { left: 8%; top: calc(var(--nav-h) + 640px); width: 10vw; }
-  .fl--cat { right: 10%; top: calc(var(--nav-h) + 660px); width: 7vw; }
+  .fl--vinyl { left: 8%; top: calc(var(--nav-h) + 548px); width: 10vw; }
+  .fl--cat { right: 10%; top: calc(var(--nav-h) + 566px); width: 7vw; }
   .fl--laptop { top: 9%; left: 2%; }
   .fl--plant { top: 8%; right: 2%; }
 }
@@ -1472,4 +1472,74 @@ h2 { font-weight: 800; letter-spacing: -.02em; }
 }
 @media (max-width: 760px) {
   .book { margin-top: 120px; }
+}
+
+/* ---------- spiral notebook (overrides the open book above) ---------- */
+.book {
+  --px: 4px;
+  width: min(700px, 100%);
+  column-gap: calc(var(--px) * 6); /* gutter where the coil sits */
+  padding: 0 0 calc(var(--px) * 2);
+  background: none;
+  box-shadow: none;
+}
+.book__page {
+  gap: 4px;
+  padding: clamp(14px, 2vw, 22px) clamp(16px, 2.4vw, 28px) clamp(16px, 2vw, 24px);
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 27px, rgba(108, 92, 255, .14) 27px 29px),
+    #f7f0e3;
+  border: calc(var(--px) * 1) solid #0b061c;
+  /* a thin pixel edge for the page stack underneath */
+  box-shadow: 0 calc(var(--px) * 1) 0 #e6dcc6, 0 calc(var(--px) * 2) 0 #0b061c;
+}
+.book__page--left { border-right: calc(var(--px) * 1) solid #0b061c; }
+.book__page--right { border-left: calc(var(--px) * 1) solid #0b061c; }
+/* the coil: a column of pixel rings bridging both pages */
+.book::after {
+  left: 50%;
+  top: calc(var(--px) * 3);
+  bottom: calc(var(--px) * 5);
+  width: calc(var(--px) * 14);
+  transform: translateX(-50%);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='6' viewBox='0 0 14 6' shape-rendering='crispEdges'%3E%3Crect x='2' y='0' width='1' height='1' fill='%230b061c'/%3E%3Crect x='3' y='0' width='1' height='1' fill='%230b061c'/%3E%3Crect x='4' y='0' width='1' height='1' fill='%230b061c'/%3E%3Crect x='5' y='0' width='1' height='1' fill='%230b061c'/%3E%3Crect x='6' y='0' width='1' height='1' fill='%230b061c'/%3E%3Crect x='7' y='0' width='1' height='1' fill='%230b061c'/%3E%3Crect x='8' y='0' width='1' height='1' fill='%230b061c'/%3E%3Crect x='9' y='0' width='1' height='1' fill='%230b061c'/%3E%3Crect x='10' y='0' width='1' height='1' fill='%230b061c'/%3E%3Crect x='11' y='0' width='1' height='1' fill='%230b061c'/%3E%3Crect x='1' y='1' width='1' height='1' fill='%230b061c'/%3E%3Crect x='2' y='1' width='1' height='1' fill='%23c9cdd8'/%3E%3Crect x='3' y='1' width='1' height='1' fill='%23c9cdd8'/%3E%3Crect x='4' y='1' width='1' height='1' fill='%23c9cdd8'/%3E%3Crect x='5' y='1' width='1' height='1' fill='%23c9cdd8'/%3E%3Crect x='6' y='1' width='1' height='1' fill='%23c9cdd8'/%3E%3Crect x='7' y='1' width='1' height='1' fill='%23c9cdd8'/%3E%3Crect x='8' y='1' width='1' height='1' fill='%23c9cdd8'/%3E%3Crect x='9' y='1' width='1' height='1' fill='%23c9cdd8'/%3E%3Crect x='10' y='1' width='1' height='1' fill='%23c9cdd8'/%3E%3Crect x='11' y='1' width='1' height='1' fill='%23c9cdd8'/%3E%3Crect x='12' y='1' width='1' height='1' fill='%230b061c'/%3E%3Crect x='0' y='2' width='1' height='1' fill='%230b061c'/%3E%3Crect x='1' y='2' width='1' height='1' fill='%23c9cdd8'/%3E%3Crect x='2' y='2' width='1' height='1' fill='%23f4f6fb'/%3E%3Crect x='3' y='2' width='1' height='1' fill='%23f4f6fb'/%3E%3Crect x='4' y='2' width='1' height='1' fill='%23f4f6fb'/%3E%3Crect x='5' y='2' width='1' height='1' fill='%23f4f6fb'/%3E%3Crect x='6' y='2' width='1' height='1' fill='%23f4f6fb'/%3E%3Crect x='7' y='2' width='1' height='1' fill='%23f4f6fb'/%3E%3Crect x='8' y='2' width='1' height='1' fill='%23f4f6fb'/%3E%3Crect x='9' y='2' width='1' height='1' fill='%23f4f6fb'/%3E%3Crect x='10' y='2' width='1' height='1' fill='%23f4f6fb'/%3E%3Crect x='11' y='2' width='1' height='1' fill='%23c9cdd8'/%3E%3Crect x='12' y='2' width='1' height='1' fill='%23c9cdd8'/%3E%3Crect x='13' y='2' width='1' height='1' fill='%230b061c'/%3E%3Crect x='0' y='3' width='1' height='1' fill='%230b061c'/%3E%3Crect x='1' y='3' width='1' height='1' fill='%232a2433'/%3E%3Crect x='2' y='3' width='1' height='1' fill='%230b061c'/%3E%3Crect x='11' y='3' width='1' height='1' fill='%230b061c'/%3E%3Crect x='12' y='3' width='1' height='1' fill='%232a2433'/%3E%3Crect x='13' y='3' width='1' height='1' fill='%230b061c'/%3E%3Crect x='0' y='4' width='1' height='1' fill='%230b061c'/%3E%3Crect x='1' y='4' width='1' height='1' fill='%232a2433'/%3E%3Crect x='2' y='4' width='1' height='1' fill='%230b061c'/%3E%3Crect x='11' y='4' width='1' height='1' fill='%230b061c'/%3E%3Crect x='12' y='4' width='1' height='1' fill='%232a2433'/%3E%3Crect x='13' y='4' width='1' height='1' fill='%230b061c'/%3E%3Crect x='1' y='5' width='1' height='1' fill='%230b061c'/%3E%3Crect x='12' y='5' width='1' height='1' fill='%230b061c'/%3E%3C/svg%3E") center top / calc(var(--px) * 14) calc(var(--px) * 9) repeat-y;
+  image-rendering: pixelated;
+}
+.book__hours { font-size: clamp(1.5rem, 3vw, 2.1rem); }
+.book__label { font-size: 1.3rem; }
+.book__big { font-size: 1.08rem; }
+.book__text { font-size: .95rem; }
+@media (max-width: 600px) {
+  .book { row-gap: calc(var(--px) * 6); column-gap: 0; }
+  .book__page--left, .book__page--right { border: calc(var(--px) * 1) solid #0b061c; }
+  /* stacked on phones: the coil runs across the top of the bottom page */
+  .book::after {
+    display: block;
+    left: 0; right: 0;
+    top: auto;
+    bottom: auto;
+    width: auto;
+    height: calc(var(--px) * 14);
+    transform: none;
+    margin-top: 0;
+    background: none;
+  }
+  /* stacked on phones: a top-bound notepad, coil rings across the top edge */
+  .book::before {
+    content: "";
+    position: absolute;
+    left: calc(var(--px) * 4);
+    right: calc(var(--px) * 4);
+    top: calc(var(--px) * -4);
+    height: calc(var(--px) * 9);
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='9' viewBox='0 0 4 9' shape-rendering='crispEdges'%3E%3Crect x='1' y='0' width='1' height='1' fill='%230b061c'/%3E%3Crect x='2' y='0' width='1' height='1' fill='%230b061c'/%3E%3Crect x='0' y='1' width='1' height='1' fill='%230b061c'/%3E%3Crect x='1' y='1' width='1' height='1' fill='%23c9cdd8'/%3E%3Crect x='2' y='1' width='1' height='1' fill='%23c9cdd8'/%3E%3Crect x='3' y='1' width='1' height='1' fill='%230b061c'/%3E%3Crect x='0' y='2' width='1' height='1' fill='%230b061c'/%3E%3Crect x='1' y='2' width='1' height='1' fill='%23f4f6fb'/%3E%3Crect x='2' y='2' width='1' height='1' fill='%23c9cdd8'/%3E%3Crect x='3' y='2' width='1' height='1' fill='%230b061c'/%3E%3Crect x='0' y='3' width='1' height='1' fill='%230b061c'/%3E%3Crect x='1' y='3' width='1' height='1' fill='%23f4f6fb'/%3E%3Crect x='2' y='3' width='1' height='1' fill='%23c9cdd8'/%3E%3Crect x='3' y='3' width='1' height='1' fill='%230b061c'/%3E%3Crect x='0' y='4' width='1' height='1' fill='%230b061c'/%3E%3Crect x='1' y='4' width='1' height='1' fill='%23f4f6fb'/%3E%3Crect x='2' y='4' width='1' height='1' fill='%23c9cdd8'/%3E%3Crect x='3' y='4' width='1' height='1' fill='%230b061c'/%3E%3Crect x='0' y='5' width='1' height='1' fill='%230b061c'/%3E%3Crect x='1' y='5' width='1' height='1' fill='%23f4f6fb'/%3E%3Crect x='2' y='5' width='1' height='1' fill='%23c9cdd8'/%3E%3Crect x='3' y='5' width='1' height='1' fill='%230b061c'/%3E%3Crect x='0' y='6' width='1' height='1' fill='%230b061c'/%3E%3Crect x='1' y='6' width='1' height='1' fill='%23f4f6fb'/%3E%3Crect x='2' y='6' width='1' height='1' fill='%232a2433'/%3E%3Crect x='3' y='6' width='1' height='1' fill='%230b061c'/%3E%3Crect x='0' y='7' width='1' height='1' fill='%230b061c'/%3E%3Crect x='1' y='7' width='1' height='1' fill='%23f4f6fb'/%3E%3Crect x='2' y='7' width='1' height='1' fill='%232a2433'/%3E%3Crect x='3' y='7' width='1' height='1' fill='%230b061c'/%3E%3Crect x='1' y='8' width='1' height='1' fill='%230b061c'/%3E%3Crect x='2' y='8' width='1' height='1' fill='%230b061c'/%3E%3C/svg%3E") left top / calc(var(--px) * 7) calc(var(--px) * 9) repeat-x;
+    image-rendering: pixelated;
+    z-index: 1;
+  }
+  .book { margin-top: calc(120px + var(--px) * 4); }
+}
+@media (max-width: 600px) {
+  .book { row-gap: 0; }
+  .book__page--left { padding-top: 34px; border-bottom: 0; box-shadow: none; }
+  .book__page--right { border-top: 2px dashed rgba(108, 92, 255, .45); }
 }
