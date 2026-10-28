@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Pixelify+Sans:wght@400;600;700&display=swap">
   <link rel="stylesheet" href="assets/css/pixel-frames.css?v=89429f333b">
-  <link rel="stylesheet" href="assets/css/style.css?v=c398f5da3a">
+  <link rel="stylesheet" href="assets/css/style.css?v=0a88e32e28">
   <script src="assets/js/config.js?v=9beb833db2" defer></script>
   <script src="assets/js/main.js?v=64d9cf1598" defer></script>
 </head>
@@ -83,21 +83,24 @@
           <img class="night__logo pixel" src="assets/img/pixel/logo.png?v=1ba2d5c424" alt="" width="520" height="150" decoding="async">
           <p class="night__tag">Bottomless boba &amp; late-night study &middot; Carrollton K-Town</p>
 
-          <div class="night__row">
-            <div class="night-card" data-status-hud>
-              <p class="night-card__label">Hours</p>
-              <p class="night-card__big"><span class="status-dot" aria-hidden="true"></span> <span data-status-text>Checking hours</span></p>
-              <p class="night-card__text">Every day, 1 PM &ndash; 2 AM</p>
-              <a class="night-card__cta" href="#hours">All hours</a>
+          <!-- an open book: hours on the left page, location on the right -->
+          <div class="book">
+            <div class="book__page book__page--left" data-status-hud>
+              <p class="book__label">Hours</p>
+              <p class="book__big"><span class="status-dot" aria-hidden="true"></span> <span data-status-text>Checking hours</span></p>
+              <p class="book__text">Open every day</p>
+              <p class="book__hours">1 PM &ndash; 2 AM</p>
+              <p class="book__text">Last call 15 minutes before close.</p>
+              <a class="book__cta" href="#hours">All hours</a>
             </div>
-            <img class="night__cup pixel" src="assets/img/pixel/cup-taro.png?v=e272b33ad8" alt="" width="176" height="272" decoding="async">
-            <div class="night-card" role="group" aria-labelledby="quest-label">
-              <p class="night-card__label" id="quest-label">Find us</p>
-              <p class="night-card__big" data-address-short>Old Denton Rd</p>
-              <p class="night-card__text hud__distance" data-distance-hud>
+            <div class="book__page book__page--right" role="group" aria-labelledby="quest-label">
+              <p class="book__label" id="quest-label">Find us</p>
+              <p class="book__big" data-address-line1>2700 Old Denton Rd, Ste 103</p>
+              <p class="book__text" data-address-line2>Carrollton, TX 75007</p>
+              <p class="book__text hud__distance" data-distance-hud>
                 <button class="hud__locate" type="button" data-locate>Show how far I am</button>
               </p>
-              <a class="night-card__cta" href="#visit">Directions</a>
+              <a class="book__cta" href="#visit">Directions</a>
             </div>
           </div>
 
