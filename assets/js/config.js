@@ -4,7 +4,7 @@ window.MIAO = {
   tagline: "All-you-can-drink boba until 2 AM",
   address: {
     street: "2700 Old Denton Rd, Ste 103",
-    short: "Old Denton Rd",
+    short: "Old Denton Rd Ste 103",
     city: "Carrollton",
     region: "TX",
     postal: "75007",
