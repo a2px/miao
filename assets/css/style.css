@@ -816,7 +816,6 @@ p { margin: 0 0 1em; }
   height: 100%;
   width: 0;
   background: repeating-linear-gradient(90deg, var(--pink) 0 14px, transparent 14px 18px);
-  transition: width .12s steps(1);
 }
 .loader__tip { margin: 6px 0 0; color: var(--muted); font-size: .95rem; max-width: 34ch; }
 .loader__enter {
