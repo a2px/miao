@@ -13,9 +13,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Pixelify+Sans:wght@400;600;700&display=swap">
   <link rel="stylesheet" href="assets/css/pixel-frames.css?v=89429f333b">
-  <link rel="stylesheet" href="assets/css/style.css?v=43679ffe55">
-  <script src="assets/js/config.js?v=9beb833db2" defer></script>
-  <script src="assets/js/main.js?v=64d9cf1598" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css?v=14e83ef4e5">
+  <script src="assets/js/config.js?v=e914ca7686" defer></script>
+  <script src="assets/js/main.js?v=6ec01b8655" defer></script>
 </head>
 <body>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -36,7 +36,7 @@
   <header class="site-nav" data-nav>
     <div class="site-nav__inner">
       <a class="brand" href="#top" aria-label="Miao home, back to top">
-        <img class="brand__logo" src="assets/img/miao-logo.png?v=b884fc7f86" alt="" width="900" height="260">
+        <img class="brand__logo" src="assets/img/miao-logo.png?v=559374f559" alt="" width="900" height="260">
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" data-nav-toggle>
         <span class="nav-toggle__bars" aria-hidden="true"></span>
@@ -53,10 +53,6 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-      <button class="motion-toggle" type="button" aria-pressed="false" data-motion-toggle>
-        <span aria-hidden="true" class="motion-toggle__icon"></span>
-        <span class="motion-toggle__label">Pause motion</span>
-      </button>
     </div>
   </header>
 
@@ -86,7 +82,7 @@
           <img class="cs-case pixel" src="assets/img/pixel/display-case.png?v=9f96ba4f69" alt="" width="300" height="264" decoding="async">
         </div>
         <div class="cs-counter" aria-hidden="true">
-          <img class="cs-logo pixel" src="assets/img/pixel/logo.png?v=1ba2d5c424" alt="" width="416" height="120" decoding="async">
+          <img class="cs-logo pixel" src="assets/img/pixel/logo.png?v=1d44d45761" alt="" width="416" height="120" decoding="async">
         </div>
         <div class="cs-floor" aria-hidden="true"></div>
       </div>
@@ -95,7 +91,7 @@
       <div class="hud" data-hud>
         <div class="hud__quest" role="group" aria-labelledby="quest-label">
           <p class="hud__label" id="quest-label">Next stop</p>
-          <p class="hud__title">Miao &middot; <span data-address-short>Old Denton Rd</span></p>
+          <p class="hud__title"><span data-address-short>Old Denton Rd Ste 103</span></p>
           <p class="hud__distance" data-distance-hud>
             <button class="hud__locate" type="button" data-locate>Show how far I am</button>
           </p>
@@ -117,7 +113,7 @@
         </div>
         <div class="loader">
           <svg class="loader__cat" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M6 4l6 6h8l6-6v14c0 6-5 10-10 10S6 24 6 18z" fill="currentColor"/><circle cx="12" cy="17" r="1.8" fill="#ffc56e"/><circle cx="20" cy="17" r="1.8" fill="#ffc56e"/></svg>
-          <img class="loader__logo" src="assets/img/miao-logo.png?v=b884fc7f86" alt="" width="900" height="260">
+          <img class="loader__logo" src="assets/img/miao-logo.png?v=559374f559" alt="" width="900" height="260">
           <p class="loader__sub">Loading late-night vibes</p>
           <div class="loader__bar" role="progressbar" aria-label="Loading the cafe" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-progress><span data-progress-fill></span></div>
           <p class="loader__tip" data-tip>Tip: your $15 pass is good all day. Leave and come back.</p>
@@ -132,17 +128,16 @@
     <!-- ============ 1. AMBIANCE ============ -->
     <section class="section vibe" id="vibe" aria-labelledby="vibe-title">
       <div class="container">
-        <p class="eyebrow">The vibe</p>
         <h2 id="vibe-title">Stay as long as you like</h2>
-        <p class="lede">Carrollton K-Town's first all-you-can-drink boba lounge. One price, every combination you can dream up, lo-fi on the speakers, and nowhere you need to be until 2&nbsp;AM.</p>
+        <p class="lede">Carrollton&rsquo;s first all-you-can-drink boba shop. $15 gets you unlimited drinks until 2:00&nbsp;AM.</p>
 
         <ul class="corners" role="list">
           <li class="corner">
             <div class="corner__art" aria-hidden="true">
               <svg viewBox="0 0 320 180" focusable="false"><rect width="320" height="180" fill="#1f1547"/><g><line x1="80" y1="0" x2="80" y2="50" stroke="#3b2a7a" stroke-width="2"/><path d="M62 66q18-28 36 0z" fill="#ffc56e"/><ellipse cx="80" cy="96" rx="50" ry="30" fill="#ffc56e" opacity=".18"/></g><g><line x1="240" y1="0" x2="240" y2="50" stroke="#3b2a7a" stroke-width="2"/><path d="M222 66q18-28 36 0z" fill="#ffc56e"/><ellipse cx="240" cy="96" rx="50" ry="30" fill="#ffc56e" opacity=".18"/></g><rect x="20" y="124" width="280" height="12" fill="#4a35a0"/><path d="M60 124l6-30h40l-6 30zM200 124l6-30h40l-6 30z" fill="#b9e9ff"/><rect x="130" y="112" width="50" height="12" fill="#ff7ac0"/><path d="M40 180v-44M280 180v-44" stroke="#2b1c5e" stroke-width="8"/></svg>
             </div>
-            <h3>Late-night study sessions</h3>
-            <p>Fast, secure Wi-Fi, plenty of outlets and room to spread out. Regulars call it their go-to spot for long study nights.</p>
+            <h3>Late Night Study Sessions</h3>
+            <p>Free, fast, secure Wi-Fi with plenty of outlets for deadlines and finals.</p>
             <p class="corner__meta">Best for: deadlines and finals</p>
           </li>
           <li class="corner">
@@ -150,7 +145,7 @@
               <svg viewBox="0 0 320 180" focusable="false"><rect width="320" height="180" fill="#2a1240"/><rect x="40" y="120" width="240" height="12" fill="#4a35a0"/><rect x="120" y="70" width="80" height="50" rx="4" fill="#f7f0e3" transform="rotate(-6 160 95)"/><path d="M128 80l64-6M130 96l64-6M132 112l64-6" stroke="#6d58c9" stroke-width="2"/><g transform="rotate(12 90 100)"><rect x="74" y="84" width="32" height="32" rx="6" fill="#f7f0e3"/><circle cx="82" cy="92" r="3" fill="#2b1a45"/><circle cx="98" cy="108" r="3" fill="#2b1a45"/><circle cx="90" cy="100" r="3" fill="#2b1a45"/></g><g transform="rotate(-10 236 100)"><rect x="220" y="84" width="32" height="32" rx="6" fill="#ff7ac0"/><circle cx="228" cy="92" r="3" fill="#2b1a45"/><circle cx="244" cy="92" r="3" fill="#2b1a45"/><circle cx="228" cy="108" r="3" fill="#2b1a45"/><circle cx="244" cy="108" r="3" fill="#2b1a45"/><circle cx="228" cy="100" r="3" fill="#2b1a45"/><circle cx="244" cy="100" r="3" fill="#2b1a45"/></g><path d="M40 180v-48M280 180v-48" stroke="#1a1138" stroke-width="8"/></svg>
             </div>
             <h3>Game nights</h3>
-            <p>Board games, card games and a Wii, free to play while you sip. Bring the crew and claim a table.</p>
+            <p>Board games, card games, and a Wii. We have large tables for whatever you choose for your group of friends.</p>
             <p class="corner__meta">Best for: friends and groups</p>
           </li>
           <li class="corner">
@@ -158,7 +153,7 @@
               <svg viewBox="0 0 320 180" focusable="false"><rect width="320" height="180" fill="#2a1d6e"/><rect x="30" y="20" width="260" height="120" rx="6" fill="#3a2a8f"/><circle cx="230" cy="54" r="16" fill="#fff3d1"/><path d="M30 140v-40h30v-14h26v54zM96 140v-60h34v60zM140 140v-36h40v36zM190 140v-70h36v70zM236 140v-46h54v46z" fill="#1a1150"/><path d="M160 20v120M30 80h260" stroke="#120a2c" stroke-width="6"/><rect x="10" y="140" width="300" height="14" fill="#5b45b8"/><path d="M60 140c-4-14-2-26 6-34l-1-10 7 7h8l7-7-1 10c8 8 10 20 6 34z" fill="#08051a"/><g class="rain" stroke="#c9d7ff" stroke-width="1.2" opacity=".5"><path d="M50 10l-5 16M110 40l-5 16M170 0l-5 16M230 70l-5 16M270 20l-5 16M80 90l-5 16M200 100l-5 16"/></g></svg>
             </div>
             <h3>Come and go all day</h3>
-            <p>Your $15 pass is good until close. Head out for class or dinner, come back for round three. No time limit.</p>
+            <p>Your all-you-can-drink pass is good until 2:00 AM. Come and go however you please.</p>
             <p class="corner__meta">Best for: all-day hangs</p>
           </li>
         </ul>
@@ -166,17 +161,9 @@
         <ul class="perks" role="list">
           <li><svg class="icon perk__icon" aria-hidden="true" focusable="false"><use href="#i-wifi"/></svg> Fast, secure Wi-Fi</li>
           <li><svg class="icon perk__icon" aria-hidden="true" focusable="false"><use href="#i-bolt"/></svg> Lots of outlets</li>
-          <li><svg class="icon perk__icon" aria-hidden="true" focusable="false"><use href="#i-dice"/></svg> Board games, cards and a Wii</li>
-          <li><svg class="icon perk__icon" aria-hidden="true" focusable="false"><use href="#i-note"/></svg> Lo-fi and good music</li>
-          <li><svg class="icon perk__icon" aria-hidden="true" focusable="false"><use href="#i-moon"/></svg> Open until 2&nbsp;AM daily</li>
+          <li><svg class="icon perk__icon" aria-hidden="true" focusable="false"><use href="#i-dice"/></svg> Plenty of games</li>
+          <li><svg class="icon perk__icon" aria-hidden="true" focusable="false"><use href="#i-moon"/></svg> Open until 2:00&nbsp;AM daily</li>
         </ul>
-
-        <div class="ambient">
-          <button class="btn btn--ghost" type="button" aria-pressed="false" data-rain>
-            <svg class="icon btn__icon" aria-hidden="true" focusable="false"><use href="#i-rain"/></svg>
-            <span>Rain sounds while you browse</span>
-          </button>
-        </div>
       </div>
     </section>
 
@@ -184,7 +171,6 @@
     <section class="section visit" id="visit" aria-labelledby="visit-title">
       <div class="container visit__grid">
         <div class="visit__info">
-          <p class="eyebrow">Find us</p>
           <h2 id="visit-title">Come find us in Carrollton K-Town</h2>
           <div class="proximity" data-proximity>
             <p class="proximity__big" data-distance-big>How far are you?</p>
@@ -221,20 +207,15 @@
     <section class="section hours" id="hours" aria-labelledby="hours-title">
       <div class="container hours__grid">
         <div>
-          <p class="eyebrow">Hours</p>
-          <h2 id="hours-title">Open until 2&nbsp;AM, every night</h2>
+          <h2 id="hours-title">Hours</h2>
           <p class="status-banner" data-status-banner><span class="status-dot" aria-hidden="true"></span> <span data-status-long>Checking if we&rsquo;re open</span></p>
           <p class="hours__note">Same hours seven days a week. Times are Central Time.</p>
-          <div class="promo">
-            <p class="promo__title">Roll a 6, it&rsquo;s on us</p>
-            <p>Monday to Thursday, 1&ndash;6 PM: every order gets a roll of the dice at the register. Land a 6 and your whole order is refunded on the spot. One roll per order.</p>
-          </div>
         </div>
         <table class="hours__table" data-hours-table>
           <caption class="visually-hidden">Opening hours by day</caption>
           <thead><tr><th scope="col">Day</th><th scope="col">Hours</th></tr></thead>
           <tbody>
-            <tr><th scope="row">Every day</th><td>1 PM &ndash; 2 AM</td></tr>
+            <tr><th scope="row">Every day</th><td>1:00 PM &ndash; 2:00 AM</td></tr>
           </tbody>
         </table>
       </div>
@@ -245,9 +226,7 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <p class="eyebrow">Social</p>
-            <h2 id="social-title">Lately at Miao</h2>
-            <p class="lede">Recent posts from <a href="https://www.instagram.com/miao_carrollton/" target="_blank" rel="noopener">@miao_carrollton<span class="visually-hidden"> on Instagram (opens in a new tab)</span></a>, including some from friends who stopped by.</p>
+            <h2 id="social-title" class="visually-hidden">Instagram</h2>
           </div>
           <div class="carousel__controls">
             <button class="icon-btn" type="button" data-carousel-prev aria-controls="social-track"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-left"/></svg><span class="visually-hidden">Previous posts</span></button>
@@ -273,7 +252,7 @@
             </div>
             <div class="post" role="group" aria-roledescription="slide" aria-label="4 of 6">
               <img class="post__img" src="assets/img/insta/post-4.jpg?v=f4d40a58bd" alt="Miao's storefront windows with the text All you can drink boba." loading="lazy" width="640" height="1136">
-              <p class="post__caption">&ldquo;With Wi-Fi and a wide selection of games (board games, card games, and Wii), this is a perfect place to study or hang out.&rdquo; Their pick: the saffron-infused Thai tea.</p>
+              <p class="post__caption">&ldquo;With Wi-Fi and a wide selection of games (board games, card games, and Wii), this is a perfect place to study or hang out.&rdquo; Their pick: the saffron-infused Thai Tea.</p>
               <p class="post__meta">Collab with @miao_carrollton</p>
             </div>
             <div class="post" role="group" aria-roledescription="slide" aria-label="5 of 6">
@@ -298,8 +277,7 @@
     <!-- ============ 5. REVIEWS ============ -->
     <section class="section reviews" id="reviews" aria-labelledby="reviews-title">
       <div class="container">
-        <p class="eyebrow">Reviews</p>
-        <h2 id="reviews-title">The regulars have spoken</h2>
+        <h2 id="reviews-title" class="visually-hidden">Reviews</h2>
         <div class="rating">
           <p class="rating__score">4.9</p>
           <div>
@@ -348,8 +326,7 @@
     <!-- ============ 6. MENU ============ -->
     <section class="section menu" id="menu" aria-labelledby="menu-title">
       <div class="container">
-        <p class="eyebrow">Menu</p>
-        <h2 id="menu-title">Your drink is custom-made</h2>
+        <h2 id="menu-title" class="visually-hidden">Menu</h2>
         <p class="lede">Every drink is built to order. Pick a tea base, add flavors, set the sugar and ice exactly how you like them. The full board is waiting for you in the shop.</p>
 
         <div class="price-grid">
@@ -367,21 +344,11 @@
 
         <h3 class="menu-sub" id="menu-build">Build your drink in four steps</h3>
         <ol class="build" role="list">
-          <li class="build__step"><span class="build__n" aria-hidden="true">1</span><div><h4>Pick a base</h4><p>Milk tea, fruit tea, Thai tea, matcha and more.</p></div></li>
-          <li class="build__step"><span class="build__n" aria-hidden="true">2</span><div><h4>Add flavors</h4><p>Mix as many as you want. The flavor board is big.</p></div></li>
+          <li class="build__step"><span class="build__n" aria-hidden="true">1</span><div><h4>Pick a base</h4><p>Jasmine Tea, Assam Tea, Thai Tea, Fruit Teas, Milk Teas, Coffee and Matcha.</p></div></li>
+          <li class="build__step"><span class="build__n" aria-hidden="true">2</span><div><h4>Add flavors</h4><p>Mix and match. More than two flavors gets a little too sweet!</p></div></li>
           <li class="build__step"><span class="build__n" aria-hidden="true">3</span><div><h4>Set sugar and ice</h4><p>Dial the sweetness and ice exactly where you want them.</p></div></li>
-          <li class="build__step"><span class="build__n" aria-hidden="true">4</span><div><h4>Sip, then go again</h4><p>On the pass? Come back for the next combination.</p></div></li>
+          <li class="build__step"><span class="build__n" aria-hidden="true">4</span><div><h4>Enjoy</h4><p>Feel free to try something new every time you return.</p></div></li>
         </ol>
-
-        <h3 class="menu-sub">What regulars order</h3>
-        <ul class="picks" role="list">
-          <li>Thai tea with brown sugar and boba</li>
-          <li>Saffron-infused Thai tea</li>
-          <li>Brown sugar milk tea</li>
-          <li>Jasmine tea</li>
-          <li>Refreshers with popping boba</li>
-          <li>Mangonadas</li>
-        </ul>
 
         <h3 class="menu-sub">Questions people actually ask</h3>
         <div class="faq">
@@ -403,15 +370,15 @@
   <footer class="footer" id="contact" aria-labelledby="contact-title" tabindex="-1">
     <div class="container footer__grid">
       <div>
-        <img class="footer__logo" src="assets/img/miao-logo.png?v=b884fc7f86" alt="Miao" width="900" height="260" loading="lazy">
+        <img class="footer__logo" src="assets/img/miao-logo.png?v=559374f559" alt="Miao" width="900" height="260" loading="lazy">
         <p class="eyebrow">Say hi</p>
         <h2 id="contact-title">Contact</h2>
         <ul class="contact-list" role="list">
           <li><span class="contact-list__label">Visit</span> <span data-address-full></span></li>
-          <li><span class="contact-list__label">Hours</span> <span>Every day, 1 PM &ndash; 2 AM</span></li>
+          <li><span class="contact-list__label">Hours</span> <span>Every day, 1:00 PM &ndash; 2:00 AM</span></li>
           <li><span class="contact-list__label">Message</span> <a href="https://www.instagram.com/miao_carrollton/" target="_blank" rel="noopener">DM us on Instagram<span class="visually-hidden"> (opens in a new tab)</span></a></li>
         </ul>
-        <p class="footer__small">The quickest way to reach us is a DM, or just stop by. We&rsquo;re up late.</p>
+        <p class="footer__small">The quickest way to reach us is a DM.</p>
       </div>
       <div>
         <h3 class="footer__h">Order</h3>
@@ -432,12 +399,12 @@
           <li><a href="accessibility.html">Accessibility</a></li>
           <li><a href="#hours">Hours</a></li>
           <li><a href="#top">Back to top</a></li>
+          <li><button class="footer-link-btn" type="button" data-motion-toggle>Pause animations</button></li>
         </ul>
       </div>
     </div>
     <div class="container footer__bottom">
       <p>&copy; <span data-year>2026</span> Miao &middot; Carrollton, TX</p>
-      <p class="footer__cat" aria-hidden="true">=^.^=</p>
     </div>
   </footer>
 </body>
