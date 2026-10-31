@@ -59,7 +59,7 @@
   const motionBtn = $("[data-motion-toggle]");
   const applyMotion = () => {
     root.classList.toggle("motion-off", motionOff);
-    motionBtn.setAttribute("aria-pressed", String(motionOff));
+    motionBtn.textContent = motionOff ? "Play animations" : "Pause animations";
   };
   motionBtn.addEventListener("click", () => {
     motionOff = !motionOff;
@@ -73,10 +73,10 @@
      Hero: dress up the drink (flavor picker)
      --------------------------------------------------------- */
   const FLAVORS = {
-    thai: { name: "Thai tea", desc: "Bold black tea with a warm, spiced orange glow." },
+    thai: { name: "Thai Tea", desc: "Bold black tea with a warm, spiced orange glow." },
     taro: { name: "Taro", desc: "Creamy, nutty and very, very purple." },
-    jasmine: { name: "Jasmine green tea", desc: "Light, floral and bright as a morning." },
-    assam: { name: "Assam black tea", desc: "Rich and malty: the classic milk tea." },
+    jasmine: { name: "Jasmine Green Tea", desc: "Light, floral and bright as a morning." },
+    assam: { name: "Assam Black Tea", desc: "Rich and malty: the classic milk tea." },
   };
   const cup = $("[data-cup]");
   const flavorName = $("[data-flavor-name]");
@@ -195,7 +195,7 @@
     h %= 24;
     const suffix = h < 12 ? "AM" : "PM";
     const h12 = h % 12 === 0 ? 12 : h % 12;
-    return m ? `${h12}:${String(m).padStart(2, "0")} ${suffix}` : `${h12} ${suffix}`;
+    return `${h12}:${String(m).padStart(2, "0")} ${suffix}`;
   };
   // A day's window in minutes from that day's midnight; closes after midnight run past 1440.
   const windowFor = (day) => {
@@ -253,7 +253,7 @@
 
     const short = s.open ? `Open now · until ${fmt(s.closes)}` : `Closed · opens ${fmt(s.opens)}`;
     const long = s.open
-      ? `Open now until ${fmt(s.closes)}. Grab a seat.`
+      ? `Open until ${fmt(s.closes)}`
       : `Closed right now. We open ${s.when} at ${fmt(s.opens)}.`;
     $("[data-status-text]").textContent = short;
     $("[data-status-long]").textContent = long;
@@ -432,50 +432,6 @@
   track.addEventListener("scroll", () => requestAnimationFrame(updateCarousel), { passive: true });
   window.addEventListener("resize", updateCarousel, { passive: true });
   updateCarousel();
-
-  /* ---------------------------------------------------------
-     Rain sounds (generated in the browser, nothing downloaded)
-     --------------------------------------------------------- */
-  const rainBtn = $("[data-rain]");
-  let audio = null;
-  const startRain = () => {
-    const ctx = new (window.AudioContext || window.webkitAudioContext)();
-    const len = ctx.sampleRate * 4;
-    const buffer = ctx.createBuffer(2, len, ctx.sampleRate);
-    for (let ch = 0; ch < 2; ch++) {
-      const data = buffer.getChannelData(ch);
-      let last = 0;
-      for (let i = 0; i < len; i++) {
-        const white = Math.random() * 2 - 1;
-        last = (last + 0.04 * white) / 1.04; // brown-ish noise: soft and low
-        data[i] = last * 3.2 + white * 0.035; // plus a little hiss for droplets
-      }
-    }
-    const src = ctx.createBufferSource();
-    src.buffer = buffer;
-    src.loop = true;
-    const filter = ctx.createBiquadFilter();
-    filter.type = "lowpass";
-    filter.frequency.value = 2400;
-    const gain = ctx.createGain();
-    gain.gain.value = 0;
-    gain.gain.linearRampToValueAtTime(0.5, ctx.currentTime + 1.2);
-    src.connect(filter).connect(gain).connect(ctx.destination);
-    src.start();
-    return { ctx, gain };
-  };
-  rainBtn.addEventListener("click", () => {
-    const on = rainBtn.getAttribute("aria-pressed") !== "true";
-    if (on) {
-      audio = startRain();
-    } else if (audio) {
-      const { ctx, gain } = audio;
-      gain.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.4);
-      setTimeout(() => ctx.close(), 500);
-      audio = null;
-    }
-    rainBtn.setAttribute("aria-pressed", String(on));
-  });
 
   applyMotion();
 })();
