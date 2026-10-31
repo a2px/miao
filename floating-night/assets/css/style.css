@@ -12,8 +12,8 @@
   --violet-500: #4a35a0;
   --violet-400: #6d58c9;
   --lav-200: #d6caff;
-  --ink: #f4eeff;
-  --muted: #c9bdf0;
+  --ink: #ffffff;
+  --muted: #ffffff;
   --pink: #ff7ac0;
   --pink-hot: #ff4fa8;
   --amber: #ffc56e;
@@ -546,7 +546,7 @@ p { margin: 0 0 1em; }
 }
 .loader__cat { width: 64px; height: 64px; color: var(--ink); animation: hop .8s ease-in-out infinite; }
 @keyframes hop { 50% { transform: translateY(-8px); } }
-.loader__title { margin: 0; font: 700 clamp(3rem, 12vw, 6rem)/1 var(--font-display); letter-spacing: .12em; color: #ffe1f1; text-shadow: 0 0 20px var(--pink-hot); }
+.loader__title { margin: 0; font: 700 clamp(3rem, 12vw, 6rem)/1 var(--font-display); letter-spacing: .12em; color: #ffffff; text-shadow: 0 0 20px var(--pink-hot); }
 .loader__sub { margin: 0; font: 600 1rem/1.3 var(--font-display); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
 .loader__bar {
   width: min(360px, 80vw);
@@ -716,7 +716,7 @@ p { margin: 0 0 1em; }
 .proximity__big {
   margin: 0 0 6px;
   font: 800 clamp(1.8rem, 4.5vw, 2.8rem)/1.1 var(--font-body);
-  color: #ffe1f1;
+  color: #ffffff;
 }
 .proximity__detail { color: var(--muted); margin-bottom: 14px; }
 .proximity.has-distance [data-locate] { display: none; }
@@ -909,7 +909,7 @@ p { margin: 0 0 1em; }
   border: 1px solid rgba(214, 202, 255, .16);
 }
 .menu-cat:target { border-color: var(--pink); box-shadow: 0 0 0 3px rgba(255, 122, 192, .3); }
-.menu-cat h3 { font: 700 1.5rem/1.2 var(--font-display); color: #ffe1f1; }
+.menu-cat h3 { font: 700 1.5rem/1.2 var(--font-display); color: #ffffff; }
 .menu-cat ul { list-style: none; margin: 0; padding: 0; }
 .item { padding: 14px 0; border-top: 1px dashed rgba(214, 202, 255, .25); }
 .item p { margin: 4px 0 0; color: var(--muted); font-size: .98rem; }
@@ -1037,15 +1037,15 @@ p { margin: 0 0 1em; }
 .price-card:focus { outline: none; }
 .price-card:target { border-color: var(--pink); box-shadow: 0 0 0 3px rgba(255, 122, 192, .3); }
 .price-card--hero {
-  background: linear-gradient(135deg, rgba(255, 122, 192, .22), rgba(109, 88, 201, .25));
-  border: 2px solid rgba(255, 122, 192, .55);
+  background: var(--night-800);
+  border: 1px solid rgba(214, 202, 255, .2);
 }
-.price-card h3 { font: 700 1.4rem/1.2 var(--font-display); color: #ffe1f1; }
+.price-card h3 { font: 700 1.4rem/1.2 var(--font-display); color: #ffffff; }
 .price-card p { color: var(--muted); }
 .price-card__price { margin: 0 0 10px; font: 800 clamp(2.4rem, 6vw, 3.4rem)/1 var(--font-body); color: var(--amber) !important; }
 .price-card__price span { font-size: 1rem; font-weight: 600; color: var(--muted); }
 
-.menu-sub { margin-top: 48px; font: 700 1.5rem/1.2 var(--font-display); color: #ffe1f1; }
+.menu-sub { margin-top: 48px; font: 700 1.5rem/1.2 var(--font-display); color: #ffffff; }
 .menu-sub:focus { outline: none; }
 .build {
   list-style: none;
@@ -1305,7 +1305,7 @@ h2 { font-weight: 800; letter-spacing: -.02em; }
 
 /* menu map: the cup in the middle, the four build steps wired to it */
 .mm { width: 100%; margin-top: 36px; display: grid; justify-items: center; gap: 8px; }
-.mm__heading { margin: 0; font: 700 clamp(2rem, 5vw, 3rem)/1 var(--font-display); text-transform: uppercase; letter-spacing: .18em; color: #ffe1f1; text-shadow: 0 0 12px rgba(255, 122, 192, .6); }
+.mm__heading { margin: 0; font: 700 clamp(2rem, 5vw, 3rem)/1 var(--font-display); text-transform: uppercase; letter-spacing: .18em; color: #ffffff; text-shadow: 0 0 12px rgba(255, 122, 192, .6); }
 .mm__price { margin: 0; color: var(--muted); }
 .mm__map {
   --wire: 48px;
@@ -1543,3 +1543,19 @@ h2 { font-weight: 800; letter-spacing: -.02em; }
   .book__page--left { padding-top: 34px; border-bottom: 0; box-shadow: none; }
   .book__page--right { border-top: 2px dashed rgba(108, 92, 255, .45); }
 }
+
+/* pause control lives in the footer's fine print (WCAG 2.2.2) */
+.footer-link-btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: 600 1rem/1.2 var(--font-body);
+  text-decoration: underline;
+  text-underline-offset: .2em;
+  cursor: pointer;
+}
+.footer-link-btn:hover { color: var(--pink); }
