@@ -950,3 +950,27 @@ body { background: #0b061c; }
 .visit2-paper .ph__inner { padding-bottom: calc(var(--rule) * 1.5); }
 .visit2-paper .ph__inner { --nudge-addr: 13px; --nudge-tips: 13px; }
 @media (max-width: 700px) { .visit2-paper .ph__inner { --nudge-addr: -16px; --nudge-tips: -16px; } .visit2-paper .visit2__buttons { margin-top: 0; } }
+/* no blank line between the Address title and the text under it */
+.visit2-paper .visit2__title { margin-bottom: 0; }
+.visit2-paper .visit2__map { margin-top: 4px; }
+
+/* copy-address button beside the address, on the same rule */
+.visit2__addr-row { display: flex; align-items: flex-start; gap: 14px; }
+.copy-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  min-height: 36px; margin-top: 8px; padding: 0 12px;
+  border: 2px solid #1d0f05; border-radius: 999px;
+  background: #ffffff; color: #1d0f05;
+  font: 700 .88rem/1 "DM Sans", system-ui, sans-serif;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--pick);
+}
+.copy-btn:hover { background: #f4efe6; }
+.copy-btn .icon { width: 16px; height: 16px; }
+.copy-btn:focus-visible { outline: 3px solid #1d0f05; outline-offset: 3px; }
+@media (max-width: 700px) { .copy-btn { margin-top: 2px; } }
+@media (max-width: 700px) {
+  .visit2__addr-row { flex-direction: column; gap: 0; }
+  .copy-btn { margin: 0 0 0; height: 32px; min-height: 32px; transform: translateY(-2px); }
+  .visit2-paper .visit2__tips { margin-top: 4px; }
+}

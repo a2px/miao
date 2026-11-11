@@ -11,6 +11,35 @@
   $$("[data-address-full]").forEach((el) => (el.textContent = `${a.street}, ${a.city}, ${a.region} ${a.postal}`));
   $$("[data-address-line2]").forEach((el) => (el.textContent = `${a.city}, ${a.region} ${a.postal}`));
 
+  /* ---- copy the address with one tap ---- */
+  const copyBtn = $("[data-copy-address]");
+  if (copyBtn) {
+    const label = $("[data-copy-label]");
+    const status = $("[data-copy-status]");
+    const icon = $("use", copyBtn);
+    const text = `${a.street}, ${a.city}, ${a.region} ${a.postal}`;
+    const fallback = () => {
+      const ta = document.createElement("textarea");
+      ta.value = text; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.append(ta); ta.select();
+      try { document.execCommand("copy"); } finally { ta.remove(); }
+    };
+    let resetTimer;
+    copyBtn.addEventListener("click", async () => {
+      try {
+        if (navigator.clipboard && window.isSecureContext) await navigator.clipboard.writeText(text); else fallback();
+        label.textContent = "Copied";
+        icon.setAttribute("href", "#i-check");
+        status.textContent = "Address copied";
+      } catch {
+        label.textContent = "Couldn't copy";
+        status.textContent = "Couldn't copy the address";
+      }
+      clearTimeout(resetTimer);
+      resetTimer = setTimeout(() => { label.textContent = "Copy"; icon.setAttribute("href", "#i-copy"); status.textContent = ""; }, 2000);
+    });
+  }
+
   /* ---- Find us: directions links and the map, centred on the shop ---- */
   const fullAddress = `${a.street}, ${a.city}, ${a.region} ${a.postal}`;
   const dest = encodeURIComponent(`${cafe.name}, ${fullAddress}`);
