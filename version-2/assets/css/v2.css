@@ -894,3 +894,16 @@ body { background: #0b061c; }
   .js .steps2[data-pop-in]:not(.is-in) .step2 { scale: 1; opacity: 1; }
   .steps2.is-in .step2 { animation: none; }
 }
+
+/* menu bar: plain white with black text; the Instagram button is the accent yellow with black text */
+.site-nav { background: #ffffff; border-color: #1d0f05; }
+.site-nav .brand__logo { filter: brightness(0); opacity: 1; }
+.site-nav .nav-links a { color: #111111; }
+.site-nav .nav-links a:hover { color: #111111; background: #f3efe6; }
+.site-nav .nav-toggle { color: #111111; border-color: #1d0f05; }
+.nav-pill { background: #f5df6e; color: #111111; border: 2px solid #1d0f05; }
+.nav-pill:hover { color: #111111; background: #f0d44a; }
+.site-nav :focus-visible { outline-color: #111111; }
+@media (max-width: 960px) {
+  .site-nav .nav-links { background: #ffffff; border-color: #1d0f05; }
+}
