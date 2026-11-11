@@ -1,31 +1,18 @@
 /* =========================================================
-   Version 2 hero: a fan of flavor cards. The middle card is the pick,
-   and the hero's background turns a pastel of that flavor.
+   Version 2 hero: a fan of flavor cards on a starry night. The middle card is the pick,
+   and its color goes to the heading and the drawn stars.
    ========================================================= */
-:root { --bg: #fde3c8; --ink-h: #4a2308; }
-:root[data-flavor="taro"] { --bg: #e9dcfb; --ink-h: #33195e; }
-:root[data-flavor="jasmine"] { --bg: #fbf2bf; --ink-h: #463600; }
-:root[data-flavor="assam"] { --bg: #eedccb; --ink-h: #3f2410; }
-:root[data-flavor="refresher"] { --bg: #d6ecfa; --ink-h: #0f3550; }
-/* the older flavor-picker colors in style.css are set on the hero itself; take this page's colors from the root instead */
-.hero.hero--fan, .hero.hero--fan[data-flavor] { --bg: inherit; }
+:root { --bg: #fbf8f4; --ink-h: #2a1a10; --sky-ink: #ece8f4; --pick: #d9a774; }
+:root[data-flavor="thai"] { --pick: #f6a65a; }
+:root[data-flavor="taro"] { --pick: #c9a7ff; }
+:root[data-flavor="jasmine"] { --pick: #f5df6e; }
+:root[data-flavor="assam"] { --pick: #d9a774; }
+:root[data-flavor="refresher"] { --pick: #7cc8f5; }
 
 /* Georgia for titles, DM Sans for everything else */
 .hero--fan, .mini-footer { font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif; }
 
 body { background: #0b061c; }
-/* paper grain over the grid */
-.hero--fan::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background-image: url("../img/paper-grain.png");
-  background-size: 300px 300px;
-  mix-blend-mode: multiply;
-  opacity: .55;
-}
 .hero--fan {
   position: relative;
   min-height: 100vh;
@@ -33,13 +20,12 @@ body { background: #0b061c; }
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  color: var(--ink-h);
-  /* graph paper: one even grid of large squares, tinted with the flavor */
+  color: var(--sky-ink);
+  /* a starry night sky */
   background:
-    linear-gradient(color-mix(in srgb, var(--ink-h) 14%, transparent) 1px, transparent 1px) -1px -1px / 96px 96px,
-    linear-gradient(90deg, color-mix(in srgb, var(--ink-h) 14%, transparent) 1px, transparent 1px) -1px -1px / 96px 96px,
-    var(--bg);
-  transition: background-color .5s ease;
+    url("../img/starfield.png") 0 0 / 640px 640px,
+    radial-gradient(ellipse 80% 60% at 50% 0%, #2a2160 0%, transparent 70%),
+    linear-gradient(to bottom, #120e2e, #0a0819 70%);
 }
 
 /* ---- headline block ---- */
@@ -57,13 +43,13 @@ body { background: #0b061c; }
   gap: 8px;
   margin: 0 0 14px;
   padding: 6px 16px;
-  border: 2px solid var(--ink-h);
+  border: 2px solid var(--sky-ink);
   border-radius: 999px;
-  background: color-mix(in srgb, #ffffff 55%, transparent);
+  background: rgba(255, 255, 255, .08);
   font-weight: 700;
   font-size: .95rem;
 }
-.lead__status .status-dot { animation: none; box-shadow: none; border: 2px solid var(--ink-h); }
+.lead__status .status-dot { animation: none; box-shadow: none; border: 2px solid var(--sky-ink); }
 .lead__title {
   margin: 0;
   font: 700 clamp(2.3rem, 5.6vw, 4.2rem)/1.05 Georgia, "Times New Roman", serif;
@@ -82,10 +68,10 @@ body { background: #0b061c; }
   font-weight: 700;
   font-size: .98rem;
 }
-.lead__meta a, .lead__locate { color: var(--ink-h); text-decoration: underline; text-underline-offset: 3px; }
-.lead__meta a:hover, .lead__locate:hover { color: var(--ink-h); text-decoration-thickness: 3px; }
+.lead__meta a, .lead__locate { color: var(--sky-ink); text-decoration: underline; text-underline-offset: 3px; }
+.lead__meta a:hover, .lead__locate:hover { color: #ffffff; text-decoration-thickness: 3px; }
 .lead__meta li { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; }
-.lead__stars { display: inline-flex; color: var(--ink-h); }
+.lead__stars { display: inline-flex; color: var(--sky-ink); }
 .lead__locate {
   padding: 0;
   border: 0;
@@ -94,7 +80,7 @@ body { background: #0b061c; }
   cursor: pointer;
   min-height: 32px;
 }
-.hero--fan :focus-visible { outline-color: var(--ink-h); }
+.hero--fan :focus-visible { outline-color: #ffffff; }
 
 
 /* ---- the fan ---- */
@@ -377,7 +363,7 @@ body { background: #0b061c; }
   overflow: visible;
   pointer-events: none;
 }
-.scribble__mark .doodle__line { stroke: var(--ink-h); stroke-width: 7; animation-delay: .5s; }
+.scribble__mark .doodle__line { stroke: #cfccd8; stroke-width: 7; animation-delay: .5s; }
 .scribble__mark .doodle__line--second { stroke-width: 5; opacity: .8; animation-duration: .6s; animation-delay: 1.3s; }
 
 .doodle--star { position: absolute; z-index: 1; overflow: visible; }
@@ -427,3 +413,8 @@ body { background: #0b061c; }
 @media (max-width: 1240px) {
   .ph__inner { padding-left: max(var(--gutter), calc(var(--margin) + 22px)); }
 }
+
+/* ---- the flavor pick colors the heading and the drawn stars ---- */
+.lead__title { color: var(--pick); transition: color .5s ease; }
+.doodle--star .doodle__line { stroke: #cfccd8; }
+.doodle--star .doodle__fill { fill: var(--pick); transition: fill .5s ease; }
