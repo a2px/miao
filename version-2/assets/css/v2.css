@@ -154,7 +154,7 @@ body { background: #0b061c; }
   width: 100%;
   height: clamp(400px, 50vh, 460px);
   padding: 22px 22px 26px;
-  border: 0;
+  border: 3px solid #1d0f05;
   border-radius: 30px;
   background: var(--c);
   color: #1d0f05;
@@ -317,3 +317,25 @@ body { background: #0b061c; }
 .ph-card__img { aspect-ratio: 4 / 3; border-radius: 18px; background: #efebe5; }
 .ph-card h3 { margin: 16px 4px 6px; font: 700 1.3rem/1.2 Georgia, "Times New Roman", serif; color: #1d1a17; }
 .ph-card p { margin: 0 4px; color: #3d3833; }
+
+/* a nudge that the page keeps going below the cards */
+.more-below {
+  position: fixed;
+  z-index: 25;
+  right: var(--gutter);
+  bottom: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: var(--ink-h);
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(11, 6, 28, .2);
+}
+.more-below:hover { color: #ffffff; text-decoration: underline; }
+@media (max-width: 760px) { .more-below { display: none; } }
+.more-below[hidden] { display: none; }
