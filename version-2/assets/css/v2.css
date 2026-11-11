@@ -328,7 +328,7 @@ body { background: #0b061c; }
   box-shadow: 0 1px 2px rgba(0, 0, 0, .08);
   transform: rotate(2deg);
 }
-.ph-card:nth-child(2) { background: #ffd1dc; transform: rotate(2.5deg) translateY(14px); }
+.ph-card:nth-child(2) { background: #c6a4f2; transform: rotate(2.5deg) translateY(14px); }
 .ph-card:nth-child(2)::before { transform: rotate(-4deg); }
 .ph-card:nth-child(3) { background: #c9ecff; transform: rotate(-1.5deg) translateY(-6px); }
 .ph-card:nth-child(3)::before { transform: rotate(5deg); }
