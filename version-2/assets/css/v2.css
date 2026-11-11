@@ -925,3 +925,8 @@ body { background: #0b061c; }
 /* hours: title block sits at the top left, level with the top of the card */
 .hours2__grid { align-items: start; }
 .hours2__grid .sky-title { margin-top: -6px; }
+
+/* three pencil exclamation marks drawn after the Reviews title, white like the stars */
+.reviews2__title { display: inline-flex; align-items: center; gap: 10px; }
+.doodle--bang { width: clamp(58px, 6.5vw, 84px); height: auto; overflow: visible; margin-top: -10px; }
+.doodle--bang .doodle__line { stroke: #ffffff; stroke-width: 8.5; }
