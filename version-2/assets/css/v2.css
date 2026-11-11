@@ -289,7 +289,17 @@ body { background: #0b061c; }
 }
 
 /* ---- placeholder section on white ---- */
-.ph { background: #ffffff; color: #1d1a17; font-family: "DM Sans", system-ui, sans-serif; }
+/* lined notebook paper: pale blue rules and a red margin line down the left */
+.ph {
+  --rule: 34px;
+  --margin: max(18px, calc(50% - 600px));
+  background:
+    linear-gradient(90deg, transparent calc(var(--margin) - 1px), #e9828f calc(var(--margin) - 1px), #e9828f calc(var(--margin) + 1px), transparent calc(var(--margin) + 1px)),
+    repeating-linear-gradient(to bottom, transparent 0 calc(var(--rule) - 1px), #a9c8ee calc(var(--rule) - 1px) var(--rule)),
+    #fffefb;
+  color: #1d1a17;
+  font-family: "DM Sans", system-ui, sans-serif;
+}
 .ph__inner { max-width: 1120px; margin: 0 auto; padding: clamp(64px, 10vw, 120px) var(--gutter); }
 .ph__eyebrow { margin: 0 0 8px; font-weight: 700; font-size: .85rem; letter-spacing: .14em; text-transform: uppercase; color: #5c5650; }
 .ph__title { margin: 0; font: 700 clamp(2rem, 4.5vw, 3.2rem)/1.1 Georgia, "Times New Roman", serif; color: #1d1a17; letter-spacing: -.01em; }
@@ -342,11 +352,20 @@ body { background: #0b061c; }
   stroke-linecap: round;
   stroke-linejoin: round;
   filter: url(#pencil);
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  animation: draw .9s cubic-bezier(.5, .1, .4, 1) forwards;
 }
-@keyframes draw { to { stroke-dashoffset: 0; } }
+/* Each line's real length is measured by the script (--len), so the dash trick behaves the same in
+   every browser. Lines stay invisible until their turn: a round pen tip on an undrawn line leaves a dot. */
+/* hidden until measured, so the finished drawing never flashes up before it animates */
+.js:not(.doodles-ready) .doodle__line { opacity: 0; }
+.doodles-ready .doodle__line {
+  stroke-dasharray: var(--len) var(--len);
+  animation: draw .9s cubic-bezier(.5, .1, .4, 1) both;
+}
+@keyframes draw {
+  from { stroke-dashoffset: var(--len); opacity: 0; }
+  1% { opacity: 1; }
+  to { stroke-dashoffset: 0; opacity: 1; }
+}
 
 .scribble { position: relative; display: inline-block; }
 .scribble__mark {
@@ -363,8 +382,8 @@ body { background: #0b061c; }
 
 .doodle--star { position: absolute; z-index: 1; overflow: visible; }
 .doodle--star .doodle__line { stroke-width: 9; animation-duration: 1.4s; }
-.doodle__fill { opacity: 0; animation: tint .5s ease forwards; filter: url(#pencil); }
-@keyframes tint { to { opacity: .9; } }
+.doodle__fill { opacity: 0; animation: tint .5s ease both; filter: url(#pencil); }
+@keyframes tint { from { opacity: 0; } to { opacity: .9; } }
 .doodle--a { width: 120px; left: 9%; top: 24%; transform: rotate(-12deg); }
 .doodle--b { width: 64px; left: 17%; top: 43%; transform: rotate(14deg); }
 .doodle--c { width: 104px; right: 9%; top: 27%; transform: rotate(10deg); }
@@ -389,7 +408,7 @@ body { background: #0b061c; }
   .doodle--b, .doodle--d { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .doodle__line { animation: none; stroke-dashoffset: 0; }
+  .doodles-ready .doodle__line { animation: none; stroke-dasharray: none; }
   .doodle__fill { animation: none; opacity: .9; }
 }
 
@@ -403,4 +422,8 @@ body { background: #0b061c; }
 @media (max-width: 700px) {
   .ph__head { grid-template-columns: 1fr; }
   .doodle--laptop { width: 170px; justify-self: end; margin-top: -8px; }
+}
+/* keep the writing to the right of the red margin line on narrow screens */
+@media (max-width: 1240px) {
+  .ph__inner { padding-left: max(var(--gutter), calc(var(--margin) + 22px)); }
 }

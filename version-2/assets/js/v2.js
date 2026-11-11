@@ -20,6 +20,12 @@
     if (e.key === "Escape" && navToggle.getAttribute("aria-expanded") === "true") { setNav(false); navToggle.focus(); }
   });
 
+  /* ---- pencil doodles: measure every line before the drawing animation starts ---- */
+  $$(".doodle__line").forEach((path) => {
+    path.style.setProperty("--len", String(Math.ceil(path.getTotalLength()) + 2));
+  });
+  document.documentElement.classList.add("doodles-ready");
+
   /* ---- open / closed, in the cafe's time zone ---- */
   const DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   const toMin = (t) => { const [h, m] = t.split(":").map(Number); return h * 60 + m; };
