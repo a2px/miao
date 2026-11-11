@@ -472,3 +472,32 @@ body { background: #0b061c; }
   .doodle--laptop { margin: 4px 0 -12px; }
   .ph__grid { margin-top: 12px; }
 }
+
+/* ---- card design: white card, title on top, the flavor's color as a rounded panel holding the drink ---- */
+.fan__btn {
+  background: #ffffff;
+  border: 2px solid #4a3520;
+  padding: calc(var(--w) * .08) calc(var(--w) * .08) calc(var(--w) * .2);
+  gap: calc(var(--w) * .06);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .35);
+}
+.fan__name { color: #1d0f05; }
+.fan__panel {
+  display: grid;
+  place-items: center;
+  min-height: 0;
+  border-radius: calc(var(--w) * .07);
+  background: var(--c);
+  overflow: hidden;
+}
+.fan__photo {
+  width: auto;
+  height: 82%;
+  max-width: 88%;
+  object-fit: contain;
+  border: 0;
+  border-radius: 0;
+}
+@media (max-width: 700px) {
+  .fan__btn { border-width: 1.5px; }
+}
