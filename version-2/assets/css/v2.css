@@ -461,3 +461,14 @@ body { background: #0b061c; }
   .ph__title { font-size: 1.6rem; }
   .ph__lede { font-size: 1.05rem; }
 }
+
+/* the laptop floats beside the heading without making the header taller, so the notes sit close under the text */
+@media (min-width: 701px) {
+  .ph__head { position: relative; grid-template-columns: minmax(0, 1fr); padding-right: clamp(200px, 24vw, 300px); }
+  .ph__head .doodle--laptop { position: absolute; right: 0; top: calc(var(--rule) * -1.6); }
+}
+.ph__grid { margin-top: calc(var(--rule) * .75); }
+@media (max-width: 700px) {
+  .doodle--laptop { margin: 4px 0 -12px; }
+  .ph__grid { margin-top: 12px; }
+}
