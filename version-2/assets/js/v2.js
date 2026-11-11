@@ -159,14 +159,25 @@
       + Math.cos(rad(lat1)) * Math.cos(rad(lat2)) * Math.sin(rad(lng2 - lng1) / 2) ** 2;
     return 2 * 3958.8 * Math.asin(Math.sqrt(h));
   };
+  // Once a distance is showing, the pill becomes a shortcut to Google Maps directions from where you are.
+  let directionsUrl = null;
+  const driveBtn = $(".lead__drive");
+  const setDirections = (pos) => {
+    const dest = encodeURIComponent(`${cafe.name}, ${a.street}, ${a.city}, ${a.region} ${a.postal}`);
+    directionsUrl = `https://www.google.com/maps/dir/?api=1&origin=${pos.coords.latitude},${pos.coords.longitude}&destination=${dest}&travelmode=driving`;
+    if (driveBtn) driveBtn.setAttribute("aria-label", `${hudDistance.textContent}. Open directions in Google Maps (opens in a new tab)`);
+  };
   const showDistance = (pos) => {
     const mi = miles(pos.coords.latitude, pos.coords.longitude, cafe.coords.lat, cafe.coords.lng);
-    if (mi < 0.05) { hudDistance.textContent = "You're here. Come on in!"; return; }
-    if (mi > 300) { hudDistance.textContent = `${Math.round(mi).toLocaleString()} mi away. Save us for your next Dallas trip`; return; }
-    const road = mi * 1.3;
-    const drive = Math.max(1, Math.round((Math.min(road, 3) / 25) * 60 + (Math.max(0, road - 3) / 45) * 60 + 3));
-    const t = drive < 60 ? `${drive} min` : `${Math.floor(drive / 60)} hr${drive % 60 ? ` ${drive % 60} min` : ""}`;
-    hudDistance.textContent = `About a ${t} drive · ${mi < 10 ? mi.toFixed(1) : Math.round(mi).toLocaleString()} mi away`;
+    if (mi < 0.05) hudDistance.textContent = "You're here. Come on in!";
+    else if (mi > 300) hudDistance.textContent = `${Math.round(mi).toLocaleString()} mi away. Save us for your next Dallas trip`;
+    else {
+      const road = mi * 1.3;
+      const drive = Math.max(1, Math.round((Math.min(road, 3) / 25) * 60 + (Math.max(0, road - 3) / 45) * 60 + 3));
+      const t = drive < 60 ? `${drive} min` : `${Math.floor(drive / 60)} hr${drive % 60 ? ` ${drive % 60} min` : ""}`;
+      hudDistance.textContent = `About a ${t} drive · ${mi < 10 ? mi.toFixed(1) : Math.round(mi).toLocaleString()} mi away`;
+    }
+    setDirections(pos);
   };
   const locate = () => {
     if (!("geolocation" in navigator)) { hudDistance.textContent = "Location is off on this browser"; return; }
@@ -174,7 +185,10 @@
     navigator.geolocation.getCurrentPosition(showDistance, () => { hudDistance.textContent = "Location is off. Tap to try again"; },
       { enableHighAccuracy: false, timeout: 12000, maximumAge: 5 * 60 * 1000 });
   };
-  $$("[data-locate]").forEach((b) => b.addEventListener("click", locate));
+  $$("[data-locate]").forEach((b) => b.addEventListener("click", () => {
+    if (directionsUrl) window.open(directionsUrl, "_blank", "noopener");
+    else locate();
+  }));
   if (navigator.permissions && navigator.permissions.query) {
     navigator.permissions.query({ name: "geolocation" }).then((st) => { if (st.state === "granted") locate(); }).catch(() => {});
   }
