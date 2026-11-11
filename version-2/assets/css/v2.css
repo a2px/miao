@@ -868,3 +868,10 @@ body { background: #0b061c; }
 .polaroid__img { border-radius: 14px; }
 .polaroid figcaption { margin-top: 16px; padding: 0 2px; }
 .polaroid__link::after { border-radius: 22px; }
+/* vibe notes: sized to their text with even padding, tops lined up, still tilted */
+.ph-card { aspect-ratio: auto; padding: 34px 28px 32px; display: flex; flex-direction: column; justify-content: flex-start; }
+.ph-card:nth-child(2) { transform: rotate(2deg); }
+.ph-card:nth-child(3) { transform: rotate(-1.5deg); }
+.ph-card h3 { margin-bottom: 12px; }
+.ph-card p { line-height: 1.55; }
+.ph__grid { align-items: stretch; }
