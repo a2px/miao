@@ -149,11 +149,11 @@ body { background: #0b061c; }
 .fan__card:not(.is-center):not(.is-back) { filter: saturate(.85) brightness(.96); }
 .fan__btn {
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-rows: auto minmax(0, 1fr);
   gap: 14px;
   width: 100%;
   height: clamp(400px, 50vh, 460px);
-  padding: 22px 22px 26px;
+  padding: 22px 22px 22px;
   border: 3px solid #1d0f05;
   border-radius: 30px;
   background: var(--c);
@@ -184,7 +184,7 @@ body { background: #0b061c; }
   height: 100%;
   min-height: 0;
   object-fit: cover;
-  object-position: 50% 60%;
+  object-position: 50% 45%;
   border-radius: 20px;
 }
 .fan__desc { font-size: .98rem; line-height: 1.4; font-weight: 600; }
