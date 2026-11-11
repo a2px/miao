@@ -7,6 +7,21 @@
   const a = cafe.address;
   $$("[data-address-short]").forEach((el) => (el.textContent = a.short));
   $$("[data-year]").forEach((el) => (el.textContent = new Date().getFullYear()));
+  $$("[data-address-line1]").forEach((el) => (el.textContent = a.street));
+  $$("[data-address-line2]").forEach((el) => (el.textContent = `${a.city}, ${a.region} ${a.postal}`));
+
+  /* ---- Find us: directions links and the map, centred on the shop ---- */
+  const fullAddress = `${a.street}, ${a.city}, ${a.region} ${a.postal}`;
+  const dest = encodeURIComponent(`${cafe.name}, ${fullAddress}`);
+  $$("[data-directions-google]").forEach((el) => { el.href = `https://www.google.com/maps/dir/?api=1&destination=${dest}`; });
+  $$("[data-directions-apple]").forEach((el) => { el.href = `https://maps.apple.com/?daddr=${encodeURIComponent(fullAddress)}`; });
+  const map = $("[data-map]");
+  if (map) {
+    const { lat, lng } = cafe.coords;
+    const bbox = [lng - 0.008, lat - 0.004, lng + 0.008, lat + 0.004].map((n) => n.toFixed(4)).join("%2C");
+    // no marker from the map itself: our own pin (the Miao icon) sits over the centre
+    map.src = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik`;
+  }
 
   /* ---- mobile menu ---- */
   const navToggle = $("[data-nav-toggle]");

@@ -503,3 +503,89 @@ body { background: #0b061c; }
 @media (max-width: 700px) {
   .fan__btn { border-width: 1.5px; }
 }
+
+/* ---- Find us: on the night sky, Georgia heading, map framed like the drink cards ---- */
+.visit2 {
+  padding: 0 var(--gutter) clamp(64px, 9vw, 120px);
+  background: url("../img/starfield.png") 300px 200px / 640px 640px, #0a0819;
+  color: var(--sky-ink);
+  position: relative;
+  font-family: "DM Sans", system-ui, sans-serif;
+}
+.visit2__inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+.visit2__title { margin: 0 0 22px; font: 700 clamp(2.1rem, 4.4vw, 3.3rem)/1.08 Georgia, "Times New Roman", serif; color: var(--pick); transition: color .5s ease; letter-spacing: -.01em; }
+.visit2__address { font-style: normal; font-weight: 700; font-size: 1.2rem; line-height: 1.5; margin-bottom: 14px; }
+.visit2__tips { list-style: none; margin: 0 0 26px; padding: 0; font-size: 1.05rem; line-height: 1.55; }
+.visit2__tips li { margin-bottom: 8px; }
+.visit2__tips strong { color: #ffffff; }
+.visit2__buttons { display: flex; flex-wrap: wrap; gap: 14px; }
+.pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  border: 2px solid #4a3520;
+}
+.pill--solid { background: var(--pick); color: #1d0f05; box-shadow: 4px 4px 0 #ffffff; transition: background-color .5s ease; }
+.pill--solid:hover { color: #1d0f05; transform: translate(-1px, -1px); box-shadow: 5px 5px 0 #ffffff; }
+.pill--outline { background: transparent; color: #ffffff; border-color: #ffffff; }
+.pill--outline:hover { color: #ffffff; background: rgba(255, 255, 255, .1); }
+.visit2 :focus-visible { outline-color: #ffffff; }
+
+.visit2__map {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 26px;
+  border: 2px solid #4a3520;
+  background: #ffffff;
+  padding: 12px;
+  /* same solid offset shadow as the cards, in the picked drink's color */
+  box-shadow: 16px 16px 0 var(--pick), 16px 16px 0 2px #4a3520;
+  transition: box-shadow .5s ease;
+}
+.visit2__map iframe { width: 100%; height: 100%; border: 0; border-radius: 16px; display: block; }
+/* the Miao icon as the map pin: a teardrop with the logo mark inside, its tip on the shop */
+.map-pin {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 54px;
+  height: 54px;
+  margin: -66px 0 0 -27px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  background: #ffffff;
+  border: 2px solid #4a3520;
+  box-shadow: 4px 4px 0 var(--pick);
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+.map-pin img { width: 70%; height: 70%; transform: rotate(45deg); }
+@media (max-width: 860px) {
+  .visit2__inner { grid-template-columns: 1fr; }
+  .visit2__map { box-shadow: 10px 10px 0 var(--pick), 10px 10px 0 2px #4a3520; margin-right: 12px; }
+  .visit2__inner { padding-top: 24px; }
+}
+/* keep stars from twinkling through the words: the text sits on a soft patch of plain sky */
+.visit2__info { position: relative; }
+.visit2__info::before {
+  content: "";
+  position: absolute;
+  inset: -28px -36px;
+  z-index: -1;
+  background: radial-gradient(closest-side, #0a0819 70%, transparent);
+  pointer-events: none;
+}
+.visit2__inner { position: relative; z-index: 0; }
