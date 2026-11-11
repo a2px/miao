@@ -183,6 +183,7 @@ body { background: #0b061c; }
   min-height: 0;
   object-fit: cover;
   object-position: 50% 45%;
+  border: 3px solid #1d0f05;
   border-radius: 20px;
 }
 .fan__desc { font-size: .98rem; line-height: 1.4; font-weight: 600; }
