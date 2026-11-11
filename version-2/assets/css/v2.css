@@ -974,3 +974,39 @@ body { background: #0b061c; }
   .copy-btn { margin: 0 0 0; height: 32px; min-height: 32px; transform: translateY(-2px); }
   .visit2-paper .visit2__tips { margin-top: 4px; }
 }
+
+/* ---- accessibility fixes ---- */
+/* price cards fit narrow phones (320px) without sideways scrolling */
+.price2 { grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); }
+/* the headline is now the h1: keep its look */
+h1.lead__title { margin: 0; }
+/* keyboard focus never hides under the floating menu bar */
+html { scroll-padding-top: 100px; }
+
+/* ---- phones: no animated doodles, and the space they held is closed up ---- */
+@media (max-width: 700px) {
+  .doodle--star, .scribble__mark, .doodle--laptop, .doodle--bang, .step2__circle { display: none !important; }
+  .ph--sky .ph__head { grid-template-columns: 1fr; }
+  .ph--sky .ph__grid { margin-top: 24px; }
+  .reviews2__title { gap: 0; }
+  .step2__n { width: auto; height: auto; place-items: start; margin-bottom: 4px; font-size: 1.3rem; }
+}
+
+/* lined-paper sections: every text line sits centered between two blue lines (like the hours card).
+   Two blank rows at the top, then each line of text takes exactly one row. */
+.menu2 .ph__inner, .visit2-paper .ph__inner { --band: calc(var(--rule) * 2 - 1px); padding-top: calc(var(--rule) * 2); --nudge-title: 0px; --nudge-lede: 0px; --nudge-visit: 0px; --nudge-addr: 0px; --nudge-tips: 0px; }
+.menu2 .ph__title, .menu2 .ph__lede { top: 0; }
+.menu2__sub { margin: var(--rule) 0 0; line-height: var(--rule); }
+.menu2 .price2 { margin-top: var(--rule); }
+.menu2 .steps2 { margin-top: calc(var(--rule) * .5); }
+.visit2-paper .visit2__buttons { margin-top: var(--rule); }
+.visit2-paper .pill { min-height: calc(var(--rule) - 6px); }
+@media (max-width: 700px) {
+  .menu2 .ph__inner, .visit2-paper .ph__inner { --band: calc(var(--rule) * 2 - 1px); padding-top: calc(var(--rule) * 2); --nudge-title: 0px; --nudge-lede: 0px; --nudge-visit: 0px; --nudge-addr: 0px; --nudge-tips: 0px; }
+  .copy-btn { transform: none; }
+}
+@media (max-width: 700px) {
+  .visit2-paper .visit2__tips { margin-top: 0; }
+  .visit2-paper .copy-btn { height: calc(var(--rule) - 6px); min-height: 0; margin: 3px 0; }
+}
+.visit2-paper .visit2__inner { padding-top: 0; }

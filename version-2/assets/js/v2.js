@@ -267,5 +267,20 @@
     popRows.forEach((el) => el.classList.add("is-in"));
   }
 
+  // Headings that follow boxes of any height snap down onto the next row of the lined paper.
+  const snapToRules = () => {
+    $$("[data-snap-rule]").forEach((el) => {
+      const paper = el.closest(".ph__inner");
+      const rule = parseFloat(getComputedStyle(paper).getPropertyValue("--rule"));
+      el.style.marginTop = "";
+      const top = el.getBoundingClientRect().top - paper.getBoundingClientRect().top - paper.clientTop;
+      const extra = (rule - (top % rule)) % rule;
+      el.style.marginTop = `${parseFloat(getComputedStyle(el).marginTop) + (extra > rule - 1 ? 0 : extra)}px`;
+    });
+  };
+  snapToRules();
+  window.addEventListener("resize", snapToRules, { passive: true });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(snapToRules);
+
   render();
 })();
