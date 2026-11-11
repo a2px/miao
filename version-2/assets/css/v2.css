@@ -477,7 +477,7 @@ body { background: #0b061c; }
 .fan__btn {
   background: #ffffff;
   border: 2px solid #4a3520;
-  padding: calc(var(--w) * .08) calc(var(--w) * .08) calc(var(--w) * .2);
+  padding: calc(var(--w) * .08);
   gap: calc(var(--w) * .06);
   box-shadow: 0 18px 40px rgba(0, 0, 0, .35);
 }
