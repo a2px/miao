@@ -90,7 +90,7 @@ body { background: #0b061c; }
   flex: 1;
   display: flex;
   flex-direction: column;
-  min-height: calc(var(--w) * 2.05 + 40px);
+  min-height: calc(var(--w) * 2.12 + 40px);
   margin-top: 8px;
   touch-action: pan-y;
 }
@@ -102,11 +102,11 @@ body { background: #0b061c; }
   list-style: none;
 }
 /* card size follows the screen width so the whole fan always fits, tilted cards included */
-.fan { --w: clamp(150px, calc(21vw - 6px), 290px); --spread: .78; }
+.fan { --w: clamp(150px, calc(20vw - 8px), 290px); --spread: .78; }
 .fan__card {
   position: absolute;
   left: 50%;
-  bottom: calc(var(--w) * .45 + 16px);
+  bottom: calc(var(--w) * .52 + 16px);
   width: var(--w);
   margin-left: calc(var(--w) / -2);
   transform-origin: 50% 120%;
@@ -170,7 +170,7 @@ body { background: #0b061c; }
   position: absolute;
   z-index: 20;
   left: 50%;
-  bottom: calc(var(--w) * 1.25 + 16px);
+  bottom: calc(var(--w) * 1.32 + 16px);
   width: calc(var(--w) + 140px);
   transform: translateX(-50%);
   display: flex;
@@ -479,7 +479,9 @@ body { background: #0b061c; }
   border: 2px solid #4a3520;
   padding: calc(var(--w) * .08);
   gap: calc(var(--w) * .06);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, .35);
+  /* neobrutalist offset: a solid copy of the card in the flavor's color, outlined like the card */
+  --off: calc(var(--w) * .065);
+  box-shadow: var(--off) var(--off) 0 var(--c), var(--off) var(--off) 0 2px #4a3520;
 }
 .fan__name { color: #1d0f05; }
 .fan__panel {
