@@ -907,3 +907,18 @@ body { background: #0b061c; }
 @media (max-width: 960px) {
   .site-nav .nav-links { background: #ffffff; border-color: #1d0f05; }
 }
+/* the Instagram button takes the picked drink's color */
+.nav-pill { background: var(--pick); transition: background-color .5s ease; }
+.nav-pill:hover { background: color-mix(in srgb, var(--pick) 85%, #000000); }
+/* main heading in white, with just "boba" in the picked drink's color */
+.lead__title { color: #ffffff; }
+.lead__title .scribble { color: var(--pick); transition: color .5s ease; }
+
+/* Find us: a short blank band, then the title written on the first blue line */
+.visit2-paper .ph__inner { --band: calc(var(--rule) * 2); padding-top: var(--rule); }
+.visit2-paper .visit2__title { margin: 0 0 var(--rule); line-height: var(--rule); white-space: nowrap; position: relative; top: var(--nudge-visit, 0px); }
+@media (max-width: 700px) {
+  .visit2-paper .visit2__title { white-space: normal; font-size: 1.6rem; }
+}
+.visit2-paper .ph__inner { --band: calc(var(--rule) * 2 - 2px); --nudge-visit: 5px; }
+@media (max-width: 700px) { .visit2-paper .ph__inner { --nudge-visit: 6px; } }
