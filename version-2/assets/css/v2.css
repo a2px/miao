@@ -392,5 +392,3 @@ body { background: #0b061c; }
   .doodle__line { animation: none; stroke-dashoffset: 0; }
   .doodle__fill { animation: none; opacity: .9; }
 }
-.motion-off .doodle__line { animation: none; stroke-dashoffset: 0; }
-.motion-off .doodle__fill { animation: none; opacity: .9; }

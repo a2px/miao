@@ -20,21 +20,6 @@
     if (e.key === "Escape" && navToggle.getAttribute("aria-expanded") === "true") { setNav(false); navToggle.focus(); }
   });
 
-  /* ---- pause control for the floating notebook and pen (WCAG 2.2.2) ---- */
-  const root = document.documentElement;
-  const motionBtn = $("[data-motion-toggle]");
-  let motionOff = localStorage.getItem("miao-motion") === "off";
-  const applyMotion = () => {
-    root.classList.toggle("motion-off", motionOff);
-    motionBtn.textContent = motionOff ? "Play animations" : "Pause animations";
-  };
-  motionBtn.addEventListener("click", () => {
-    motionOff = !motionOff;
-    localStorage.setItem("miao-motion", motionOff ? "off" : "on");
-    applyMotion();
-  });
-  applyMotion();
-
   /* ---- open / closed, in the cafe's time zone ---- */
   const DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   const toMin = (t) => { const [h, m] = t.split(":").map(Number); return h * 60 + m; };
