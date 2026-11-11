@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="assets/css/style.css?v=501c15b613">
   <link rel="stylesheet" href="assets/css/v2.css?v=b074b1fe5e">
   <script src="assets/js/config.js?v=e914ca7686" defer></script>
-  <script src="assets/js/v2.js?v=5017e66fe1" defer></script>
+  <script src="assets/js/v2.js?v=892365070e" defer></script>
 </head>
 <body>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -96,7 +96,7 @@
       </div>
 
       <div class="fan" role="group" aria-roledescription="carousel" aria-labelledby="fan-label" data-fan>
-        <p class="visually-hidden" id="fan-label">Pick a flavor. Select a card or use the arrow buttons to turn the cards.</p>
+        <p class="visually-hidden" id="fan-label">Pick a flavor. Select a card, scroll sideways over the cards, or use the left and right arrow keys.</p>
         <ul class="fan__deck" role="list" data-deck>
             <li class="fan__card fan__card--thai" data-card="thai">
               <button class="fan__btn" type="button" data-pick="thai" aria-label="Saffron-Infused Thai Tea">
@@ -129,11 +129,7 @@
               </button>
             </li>
         </ul>
-        <div class="fan__nav">
-          <button class="fan__arrow" type="button" data-step="-1" aria-label="Previous flavor"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></button>
-          <p class="fan__picked" aria-live="polite" data-picked>Jasmine Green Tea</p>
-          <button class="fan__arrow" type="button" data-step="1" aria-label="Next flavor"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-right"/></svg></button>
-        </div>
+        <p class="fan__picked" aria-live="polite" data-picked>Jasmine Green Tea</p>
       </div>
     </section>
 

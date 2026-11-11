@@ -179,7 +179,24 @@
   };
   const step = (dir) => { at = (at + dir + n) % n; render(); };
 
-  $$("[data-step]").forEach((b) => b.addEventListener("click", () => step(Number(b.dataset.step))));
+  // Scrolling sideways over the cards (trackpad swipe, or shift + mouse wheel) turns them one card at a time.
+  // Up-and-down scrolling is left alone so the page still scrolls normally.
+  let swipe = 0;
+  let swipeLockedUntil = 0;
+  fan.addEventListener("wheel", (e) => {
+    if (!e.target.closest(".fan__card")) return;
+    const dx = e.shiftKey && !e.deltaX ? e.deltaY : e.deltaX;
+    if (Math.abs(dx) <= Math.abs(e.shiftKey ? 0 : e.deltaY)) return;
+    e.preventDefault();
+    const now = performance.now();
+    if (now < swipeLockedUntil) return;
+    swipe += dx;
+    if (Math.abs(swipe) >= 30) {
+      step(swipe > 0 ? 1 : -1);
+      swipe = 0;
+      swipeLockedUntil = now + 350;
+    }
+  }, { passive: false });
   cards.forEach((card, i) => $(".fan__btn", card).addEventListener("click", () => {
     if (i !== at) { at = i; render(); }
   }));
