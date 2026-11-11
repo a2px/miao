@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Pixelify+Sans:wght@400;600;700&display=swap">
   <link rel="stylesheet" href="assets/css/pixel-frames.css?v=89429f333b">
   <link rel="stylesheet" href="assets/css/style.css?v=501c15b613">
-  <link rel="stylesheet" href="assets/css/v2.css?v=b20c5e06e1">
+  <link rel="stylesheet" href="assets/css/v2.css?v=e65615633b">
   <script src="assets/js/config.js?v=e914ca7686" defer></script>
   <script src="assets/js/v2.js?v=64524ca551" defer></script>
 </head>
@@ -31,6 +31,16 @@
     <symbol id="i-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7zm0 4.2a2.8 2.8 0 1 0 0 5.6 2.8 2.8 0 0 0 0-5.6z"/></symbol>
     <symbol id="i-left" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M15 5l-7 7 7 7"/></symbol>
     <symbol id="i-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></symbol>
+  </svg>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <!-- rough pencil: wobble the edges, then knock grain out of the stroke -->
+    <filter id="pencil" x="-10%" y="-30%" width="120%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" seed="4" result="wobble"/>
+      <feDisplacementMap in="SourceGraphic" in2="wobble" scale="3" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+      <feTurbulence type="fractalNoise" baseFrequency="1.6" numOctaves="1" seed="9" result="grain"/>
+      <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.2 1.9" result="grainMask"/>
+      <feComposite in="rough" in2="grainMask" operator="in"/>
+    </filter>
   </svg>
   <a class="skip-link" href="#main">Skip to main content</a>
 
@@ -62,12 +72,26 @@
     <!-- ============ HERO: a fan of flavor cards; the middle one is the pick ============ -->
     <section class="hero hero--fan" id="top" aria-labelledby="hero-title" data-hero data-flavor="assam" tabindex="-1">
       <h1 id="hero-title" class="visually-hidden">Miao: all-you-can-drink boba and late-night study spot in Carrollton, Texas</h1>
-      <img class="deco deco--notebook pixel" src="assets/img/pixel/notebook.png?v=3a69cd9b19" alt="" width="30" height="36" aria-hidden="true">
-      <img class="deco deco--pen pixel" src="assets/img/pixel/pen.png?v=ea43ad2ed9" alt="" width="12" height="40" aria-hidden="true">
+      <svg class="doodle doodle--star doodle--a" viewBox="0 0 124 124" aria-hidden="true" focusable="false">
+        <path class="doodle__fill" d="M63.2 15.2 L91.6 103.1 L19.2 51.8 L112.5 48.6 L37.4 108.9Z" fill="#f6b93b" fill-rule="nonzero"/>
+        <path class="doodle__line" pathLength="1" d="M61.2 12.0 Q75.6 54.2 88.7 99.9 Q52.0 76.7 15.0 51.0 Q63.1 47.5 108.5 43.0 Q71.7 72.9 31.2 103.1 Q46.4 60.9 59.5 14.5 L62.2 24.5"/>
+      </svg>
+      <svg class="doodle doodle--star doodle--b" viewBox="0 0 124 124" aria-hidden="true" focusable="false">
+        <path class="doodle__fill" d="M63.0 12.3 L95.2 101.9 L18.5 48.9 L112.6 46.8 L34.5 101.4Z" fill="#ff8fab" fill-rule="nonzero"/>
+        <path class="doodle__line" pathLength="1" d="M57.7 9.3 Q71.0 53.8 88.4 100.9 Q49.0 74.7 10.6 44.5 Q57.5 45.4 106.8 41.4 Q66.2 71.1 26.9 99.1 Q41.9 55.5 57.0 10.5 L62.5 21.8"/>
+      </svg>
+      <svg class="doodle doodle--star doodle--c" viewBox="0 0 124 124" aria-hidden="true" focusable="false">
+        <path class="doodle__fill" d="M62.6 14.2 L96.9 105.5 L19.7 50.2 L112.2 50.6 L34.2 103.8Z" fill="#f6b93b" fill-rule="nonzero"/>
+        <path class="doodle__line" pathLength="1" d="M54.6 10.5 Q75.0 53.8 92.4 99.9 Q55.3 73.4 13.1 44.5 Q58.9 45.6 109.5 48.3 Q71.6 72.8 29.1 98.5 Q40.5 58.0 55.6 13.1 L62.4 24.0"/>
+      </svg>
+      <svg class="doodle doodle--star doodle--d" viewBox="0 0 124 124" aria-hidden="true" focusable="false">
+        <path class="doodle__fill" d="M65.2 14.9 L91.4 105.7 L20.2 51.8 L115.4 51.2 L33.8 102.7Z" fill="#8fd3ff" fill-rule="nonzero"/>
+        <path class="doodle__line" pathLength="1" d="M60.3 9.8 Q74.0 57.9 85.0 103.4 Q47.7 75.0 12.8 46.2 Q64.8 48.5 112.5 50.0 Q70.1 72.8 29.6 98.5 Q45.4 55.0 60.4 12.5 L63.9 24.6"/>
+      </svg>
 
       <div class="lead">
         <p class="lead__status" data-status-hud><span class="status-dot" aria-hidden="true"></span> <span data-status-text>Checking hours</span></p>
-        <p class="lead__title">Better studying with bottomless boba</p>
+        <p class="lead__title">Better studying with bottomless <span class="scribble">boba<svg class="scribble__mark" viewBox="0 0 200 26" aria-hidden="true" focusable="false"><path class="doodle__line" pathLength="1" d="M4 13 C 38 8, 92 7, 150 9 S 192 10, 196 8"/><path class="doodle__line doodle__line--second" pathLength="1" d="M186 13 C 140 15, 80 17, 34 18 S 10 19, 8 20"/></svg></span></p>
         <p class="lead__sub">One $15 day pass gets you build-your-own boba until 2:00&nbsp;AM, or sip one drink for $6.50</p>
         <ul class="lead__meta" role="list">
           <li><a href="https://a2px.github.io/miao/#reviews"><span class="lead__stars" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg></span> 4.9 &middot; 484 Google reviews</a></li>

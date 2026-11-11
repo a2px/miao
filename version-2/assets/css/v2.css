@@ -96,17 +96,6 @@ body { background: #0b061c; }
 }
 .hero--fan :focus-visible { outline-color: var(--ink-h); }
 
-/* ---- pixel props floating at the sides, like stickers ---- */
-.deco { position: absolute; z-index: 1; height: auto; filter: drop-shadow(5px 5px 0 color-mix(in srgb, var(--ink-h) 25%, transparent)); }
-.deco--notebook { width: 150px; left: 8%; top: 27%; --r: -10deg; animation: float 5s ease-in-out infinite; }
-.deco--pen { width: 60px; right: 11%; top: 31%; --r: 24deg; animation: float 4.2s ease-in-out -1.5s infinite; }
-.deco { transform: rotate(var(--r)); }
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotate(var(--r)); }
-  50% { transform: translateY(-16px) rotate(calc(var(--r) + 4deg)); }
-}
-.motion-off .deco { animation: none; }
-.mini-footer .footer-link-btn { color: #ffffff; min-height: 24px; font-size: .95rem; }
 
 /* ---- the fan ---- */
 .fan {
@@ -230,12 +219,7 @@ body { background: #0b061c; }
 .mini-footer p { margin: 0; }
 .mini-footer a { color: #ffffff; }
 
-@media (max-width: 1100px) {
-  .deco--notebook { width: 104px; left: 3%; top: 34%; }
-  .deco--pen { width: 42px; right: 5%; top: 36%; }
-}
 @media (max-width: 760px) {
-  .deco { display: none; }
   .lead__sub { font-size: 1rem; }
   .fan { min-height: 480px; }
   .fan { --w: 230px; }
@@ -250,7 +234,6 @@ body { background: #0b061c; }
 }
 @media (prefers-reduced-motion: reduce) {
   .fan__card, .hero--fan { transition-duration: .01s; }
-  .deco { animation: none; }
 }
 
 /* ---- floating menu bar: a rounded pill styled like the open-now tag ---- */
@@ -350,3 +333,64 @@ body { background: #0b061c; }
   .ph__grid { justify-items: center; gap: 40px; }
   .ph-card { width: min(300px, 86%); }
 }
+
+/* ---- pencil marks that draw themselves: the underline under "boba" and the stars ---- */
+.doodle__line {
+  fill: none;
+  stroke: #2a1a10;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: url(#pencil);
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw .9s cubic-bezier(.5, .1, .4, 1) forwards;
+}
+@keyframes draw { to { stroke-dashoffset: 0; } }
+
+.scribble { position: relative; display: inline-block; }
+.scribble__mark {
+  position: absolute;
+  left: -3%;
+  bottom: -.12em;
+  width: 106%;
+  height: auto;
+  overflow: visible;
+  pointer-events: none;
+}
+.scribble__mark .doodle__line { stroke: var(--ink-h); stroke-width: 7; animation-delay: .5s; }
+.scribble__mark .doodle__line--second { stroke-width: 5; opacity: .8; animation-duration: .6s; animation-delay: 1.3s; }
+
+.doodle--star { position: absolute; z-index: 1; overflow: visible; }
+.doodle--star .doodle__line { stroke-width: 9; animation-duration: 1.4s; }
+.doodle__fill { opacity: 0; animation: tint .5s ease forwards; filter: url(#pencil); }
+@keyframes tint { to { opacity: .9; } }
+.doodle--a { width: 120px; left: 9%; top: 24%; transform: rotate(-12deg); }
+.doodle--b { width: 64px; left: 17%; top: 43%; transform: rotate(14deg); }
+.doodle--c { width: 104px; right: 9%; top: 27%; transform: rotate(10deg); }
+.doodle--d { width: 58px; right: 18%; top: 15%; transform: rotate(-8deg); }
+.doodle--a .doodle__line { animation-delay: 1.4s; }
+.doodle--a .doodle__fill { animation-delay: 2.6s; }
+.doodle--b .doodle__line { animation-delay: 2.1s; }
+.doodle--b .doodle__fill { animation-delay: 3.2s; }
+.doodle--c .doodle__line { animation-delay: 1.7s; }
+.doodle--c .doodle__fill { animation-delay: 2.9s; }
+.doodle--d .doodle__line { animation-delay: 2.4s; }
+.doodle--d .doodle__fill { animation-delay: 3.5s; }
+@media (max-width: 1100px) {
+  .doodle--a { width: 84px; left: 3%; top: 30%; }
+  .doodle--b { width: 46px; left: 8%; top: 46%; }
+  .doodle--c { width: 76px; right: 3%; top: 32%; }
+  .doodle--d { width: 42px; right: 10%; top: 20%; }
+}
+@media (max-width: 760px) {
+  .doodle--a { width: 52px; left: 2%; top: 12%; }
+  .doodle--c { width: 48px; right: 3%; top: 12%; }
+  .doodle--b, .doodle--d { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .doodle__line { animation: none; stroke-dashoffset: 0; }
+  .doodle__fill { animation: none; opacity: .9; }
+}
+.motion-off .doodle__line { animation: none; stroke-dashoffset: 0; }
+.motion-off .doodle__fill { animation: none; opacity: .9; }
