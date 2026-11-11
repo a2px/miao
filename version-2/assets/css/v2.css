@@ -795,3 +795,28 @@ body { background: #0b061c; }
   .hours2__table th, .hours2__table td { padding: 0 4px; }
   .today-tag { margin-left: 4px; padding: 2px 6px; font-size: .66rem; }
 }
+
+/* ---- the vibe section sits straight on the night sky (no paper); the laptop is drawn in white like the stars ---- */
+.ph--sky { color: var(--sky-ink); }
+.ph--sky .ph__inner { --nudge-title: 0px; --nudge-lede: 0px; background: none; border: 0; box-shadow: none; padding: clamp(24px, 4vw, 48px) 0 0; max-width: 1160px; }
+.ph--sky .ph__title { color: var(--pick); line-height: 1.1; transition: color .5s ease; }
+.ph--sky .ph__lede { color: var(--sky-ink); line-height: 1.5; margin-top: 12px; }
+.ph--sky .ph__head .doodle--laptop { top: -24px; }
+.ph--sky .doodle--laptop .doodle__line { stroke: #ffffff; }
+.ph--sky .ph__grid { margin-top: 36px; }
+@media (max-width: 700px) { .ph--sky .ph__inner { padding: 8px 0 0; } }
+
+/* ---- Find us on a sheet of lined paper ---- */
+.visit2-paper .visit2__inner { color: #1d1a17; }
+.visit2-paper .visit2__info::before { display: none; }
+.visit2-paper .visit2__title { color: #1d1a17; }
+.visit2-paper .visit2__address, .visit2-paper .visit2__tips { color: #2b2622; }
+.visit2-paper .visit2__tips strong { color: #1d1a17; }
+.visit2-paper .pill--solid { box-shadow: 4px 4px 0 #1d0f05; }
+.visit2-paper :focus-visible { outline-color: #1d0f05; }
+.visit2-paper .visit2__map { margin-right: 12px; }
+@media (min-width: 701px) {
+  .ph--sky .ph__head { padding-right: 0; grid-template-columns: minmax(0, 1fr) auto; align-items: center; }
+  .ph--sky .ph__head .doodle--laptop { position: static; width: clamp(150px, 15vw, 210px); }
+}
+.visit2-paper .visit2__title { font-size: clamp(1.9rem, 3.4vw, 2.6rem); }
