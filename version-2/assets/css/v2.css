@@ -820,3 +820,8 @@ body { background: #0b061c; }
   .ph--sky .ph__head .doodle--laptop { position: static; width: clamp(150px, 15vw, 210px); }
 }
 .visit2-paper .visit2__title { font-size: clamp(1.9rem, 3.4vw, 2.6rem); }
+
+/* ---- questions in their own section on the night sky ---- */
+.faq-section__inner { max-width: 860px; }
+.faq-section .faq2 { margin-right: 6px; }
+.faq-section .faq2__item summary:focus-visible { outline-color: #ffffff; }
