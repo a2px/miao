@@ -34,12 +34,10 @@ body { background: #0b061c; }
   flex-direction: column;
   overflow: hidden;
   color: var(--ink-h);
-  /* graph paper: fine squares, a heavier line every fifth square, tinted with the flavor */
+  /* graph paper: one even grid of large squares, tinted with the flavor */
   background:
-    linear-gradient(color-mix(in srgb, var(--ink-h) 16%, transparent) 1px, transparent 1px) -1px -1px / 120px 120px,
-    linear-gradient(90deg, color-mix(in srgb, var(--ink-h) 16%, transparent) 1px, transparent 1px) -1px -1px / 120px 120px,
-    linear-gradient(color-mix(in srgb, var(--ink-h) 8%, transparent) 1px, transparent 1px) -1px -1px / 24px 24px,
-    linear-gradient(90deg, color-mix(in srgb, var(--ink-h) 8%, transparent) 1px, transparent 1px) -1px -1px / 24px 24px,
+    linear-gradient(color-mix(in srgb, var(--ink-h) 14%, transparent) 1px, transparent 1px) -1px -1px / 96px 96px,
+    linear-gradient(90deg, color-mix(in srgb, var(--ink-h) 14%, transparent) 1px, transparent 1px) -1px -1px / 96px 96px,
     var(--bg);
   transition: background-color .5s ease;
 }
