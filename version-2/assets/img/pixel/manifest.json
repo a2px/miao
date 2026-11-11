@@ -1,0 +1,121 @@
+{
+ "boba-cup": {
+  "pixels": [
+   24,
+   36
+  ],
+  "source_units_per_pixel": 5
+ },
+ "cashier": {
+  "pixels": [
+   46,
+   50
+  ],
+  "source_units_per_pixel": 5
+ },
+ "couch": {
+  "pixels": [
+   90,
+   58
+  ],
+  "source_units_per_pixel": 5
+ },
+ "cup-assam": {
+  "pixels": [
+   44,
+   68
+  ],
+  "source_units_per_pixel": 5
+ },
+ "cup-jasmine": {
+  "pixels": [
+   44,
+   68
+  ],
+  "source_units_per_pixel": 5
+ },
+ "cup-taro": {
+  "pixels": [
+   44,
+   68
+  ],
+  "source_units_per_pixel": 5
+ },
+ "cup-thai": {
+  "pixels": [
+   44,
+   68
+  ],
+  "source_units_per_pixel": 5
+ },
+ "display-case": {
+  "pixels": [
+   50,
+   44
+  ],
+  "source_units_per_pixel": 5
+ },
+ "plant": {
+  "pixels": [
+   34,
+   54
+  ],
+  "source_units_per_pixel": 5
+ },
+ "record-wall": {
+  "pixels": [
+   132,
+   89
+  ],
+  "source_units_per_pixel": 4
+ },
+ "table": {
+  "pixels": [
+   90,
+   62
+  ],
+  "source_units_per_pixel": 5
+ },
+ "string-lights-wire": {
+  "pixels": [
+   222,
+   28
+  ],
+  "source_units_per_pixel": null
+ },
+ "string-lights-1": {
+  "pixels": [
+   222,
+   28
+  ],
+  "source_units_per_pixel": null
+ },
+ "string-lights-2": {
+  "pixels": [
+   222,
+   28
+  ],
+  "source_units_per_pixel": null
+ },
+ "string-lights-3": {
+  "pixels": [
+   222,
+   28
+  ],
+  "source_units_per_pixel": null
+ },
+ "logo": {
+  "pixels": [
+   104,
+   30
+  ],
+  "source_units_per_pixel": null
+ },
+ "cat": {
+  "pixels": [
+   18,
+   18
+  ],
+  "source_units_per_pixel": null
+ }
+}
