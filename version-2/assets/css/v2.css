@@ -936,3 +936,17 @@ body { background: #0b061c; }
 /* menu paper: half the blank band, title written on the first blue line */
 .menu2 .ph__inner { --band: calc(var(--rule) * 2 - 2px); padding-top: var(--rule); }
 @media (max-width: 700px) { .menu2 .ph__inner { --band: calc(var(--rule) * 2 - 2px); padding-top: var(--rule); } }
+.review2 blockquote strong { font-weight: 700; }
+.doodle--bang path:nth-child(2) { filter: url(#pencil-grain); opacity: 1; }
+
+/* Address on lined paper: every line of text written on a rule, map and buttons squared to the lines */
+.visit2-paper .visit2__inner { align-items: start; }
+.visit2-paper .visit2__address { margin: 0; line-height: var(--rule); position: relative; top: var(--nudge-addr, 0px); }
+.visit2-paper .visit2__tips { margin: 0; }
+.visit2-paper .visit2__tips li { margin: 0; line-height: var(--rule); position: relative; top: var(--nudge-tips, 0px); }
+.visit2-paper .visit2__buttons { margin-top: calc(var(--rule) + 3px); gap: 12px calc(var(--rule) * .3); row-gap: 6px; }
+.visit2-paper .pill { min-height: 40px; }
+.visit2-paper .visit2__map { margin-top: 0; }
+.visit2-paper .ph__inner { padding-bottom: calc(var(--rule) * 1.5); }
+.visit2-paper .ph__inner { --nudge-addr: 13px; --nudge-tips: 13px; }
+@media (max-width: 700px) { .visit2-paper .ph__inner { --nudge-addr: -16px; --nudge-tips: -16px; } .visit2-paper .visit2__buttons { margin-top: 0; } }

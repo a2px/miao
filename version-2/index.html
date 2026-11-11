@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Pixelify+Sans:wght@400;600;700&display=swap">
   <link rel="stylesheet" href="assets/css/pixel-frames.css?v=89429f333b">
   <link rel="stylesheet" href="assets/css/style.css?v=501c15b613">
-  <link rel="stylesheet" href="assets/css/v2.css?v=0c8714fe1c">
+  <link rel="stylesheet" href="assets/css/v2.css?v=aad3a442ab">
   <script src="assets/js/config.js?v=e914ca7686" defer></script>
   <script src="assets/js/v2.js?v=8ffdb104a0" defer></script>
 </head>
@@ -40,6 +40,13 @@
       <feTurbulence type="fractalNoise" baseFrequency="1.6" numOctaves="1" seed="9" result="grain"/>
       <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.2 1.9" result="grainMask"/>
       <feComposite in="rough" in2="grainMask" operator="in"/>
+    </filter>
+    <!-- pencil grain only (no edge wobble) for tiny marks like dots, so they stay round -->
+    <filter id="pencil-grain" filterUnits="userSpaceOnUse" x="-10" y="-10" width="110" height="100">
+      <feTurbulence type="fractalNoise" baseFrequency="1.6" numOctaves="1" seed="9" result="grain"/>
+      <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.2 1.9" result="grainMask"/>
+      <feDisplacementMap in="SourceGraphic" in2="grain" scale="1.2" xChannelSelector="R" yChannelSelector="G" result="soft"/>
+      <feComposite in="soft" in2="grainMask" operator="in"/>
     </filter>
   </svg>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -270,32 +277,32 @@
         <ul class="reviews2__grid" role="list">
           <li class="review2 review2--thai">
             <p class="review2__stars" role="img" aria-label="5 out of 5 stars"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg></p>
-            <blockquote><p>This is my go to late night study spot. The all you can drink boba is great for long study sessions. The staff remember you and are very friendly, especially Milo!</p></blockquote>
+            <blockquote><p>This is my go to <strong>late night study spot</strong>. The all you can drink boba is great for long study sessions. The staff remember you and are very friendly, especially Milo!</p></blockquote>
             <p class="review2__who">Geo G. &middot; Google</p>
           </li>
           <li class="review2 review2--taro">
             <p class="review2__stars" role="img" aria-label="5 out of 5 stars"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg></p>
-            <blockquote><p>As a college student who struggles to find spots that are open late, this place is super awesome and is amazing. I love the fact that you can get the AYCD boba and there is tons of variety.</p></blockquote>
+            <blockquote><p><strong>As a college student</strong> who struggles to find spots that are open late, this place is super awesome and is amazing. I love the fact that you can get the AYCD boba and there is tons of variety.</p></blockquote>
             <p class="review2__who">Nick &middot; Google</p>
           </li>
           <li class="review2 review2--jasmine">
             <p class="review2__stars" role="img" aria-label="5 out of 5 stars"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg></p>
-            <blockquote><p>The ambiance of Miao is cozy and makes a great hangout and study spot. The service is awesome, and Milo especially was hospitable and gives great drink recommendations!</p></blockquote>
+            <blockquote><p>The <strong>ambiance</strong> of Miao is cozy and makes a great hangout and study spot. The service is awesome, and Milo especially was hospitable and gives great drink recommendations!</p></blockquote>
             <p class="review2__who">Jake C. &middot; Google</p>
           </li>
           <li class="review2 review2--refresher">
             <p class="review2__stars" role="img" aria-label="5 out of 5 stars"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg></p>
-            <blockquote><p>My friends and I love coming to Miao! Definitely the best late-night spot in DFW. Shoutout to Milo and Grace for their custom drink creation genius!</p></blockquote>
+            <blockquote><p>My friends and I love coming to Miao! Definitely the best <strong>late-night spot</strong> in DFW. Shoutout to Milo and Grace for their custom drink creation genius!</p></blockquote>
             <p class="review2__who">Peyton L. &middot; Google</p>
           </li>
           <li class="review2 review2--assam">
             <p class="review2__stars" role="img" aria-label="5 out of 5 stars"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg></p>
-            <blockquote><p>Spacious place with lots of outlets and good wifi for studying and getting work done. Love the promotion for all you can drink tea and the add a friend discount to it.</p></blockquote>
+            <blockquote><p>Spacious place with <strong>lots of outlets and good wifi for studying</strong> and getting work done. Love the promotion for all you can drink tea and the add a friend discount to it.</p></blockquote>
             <p class="review2__who">Angelica F. &middot; Google</p>
           </li>
           <li class="review2 review2--thai">
             <p class="review2__stars" role="img" aria-label="5 out of 5 stars"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-star"/></svg></p>
-            <blockquote><p>Always great coming here. It gets really busy in the evenings, but still a great spot to study or meet up with friends. Boba is great, and the employees are always kind and super helpful.</p></blockquote>
+            <blockquote><p>Always great coming here. It gets really busy in the evenings, but still a great spot to <strong>study or meet up with friends</strong>. Boba is great, and the employees are always kind and super helpful.</p></blockquote>
             <p class="review2__who">Moe &middot; Google</p>
           </li>
         </ul>
