@@ -122,6 +122,7 @@
     });
     const key = cards[at].dataset.card;
     hero.dataset.flavor = key;
+    document.documentElement.dataset.flavor = key; // the menu bar follows the flavor too
     picked.textContent = $(".fan__name", cards[at]).textContent;
   };
   const step = (dir) => { at = (at + dir + n) % n; render(); };

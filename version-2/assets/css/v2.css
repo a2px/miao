@@ -2,16 +2,28 @@
    Version 2 hero: a fan of flavor cards. The middle card is the pick,
    and the hero's background turns a pastel of that flavor.
    ========================================================= */
-.hero--fan { --bg: #fde3c8; --ink-h: #4a2308; }
-.hero--fan[data-flavor="taro"] { --bg: #e9dcfb; --ink-h: #33195e; }
-.hero--fan[data-flavor="jasmine"] { --bg: #fbf2bf; --ink-h: #463600; }
-.hero--fan[data-flavor="assam"] { --bg: #eedccb; --ink-h: #3f2410; }
-.hero--fan[data-flavor="refresher"] { --bg: #d6ecfa; --ink-h: #0f3550; }
+:root { --bg: #fde3c8; --ink-h: #4a2308; }
+:root[data-flavor="taro"] { --bg: #e9dcfb; --ink-h: #33195e; }
+:root[data-flavor="jasmine"] { --bg: #fbf2bf; --ink-h: #463600; }
+:root[data-flavor="assam"] { --bg: #eedccb; --ink-h: #3f2410; }
+:root[data-flavor="refresher"] { --bg: #d6ecfa; --ink-h: #0f3550; }
 
 /* Georgia for titles, DM Sans for everything else */
 .hero--fan, .mini-footer { font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif; }
 
 body { background: #0b061c; }
+/* paper grain over the grid */
+.hero--fan::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("../img/paper-grain.png");
+  background-size: 300px 300px;
+  mix-blend-mode: multiply;
+  opacity: .55;
+}
 .hero--fan {
   position: relative;
   min-height: 100vh;
@@ -20,8 +32,12 @@ body { background: #0b061c; }
   flex-direction: column;
   overflow: hidden;
   color: var(--ink-h);
+  /* graph paper: fine squares, a heavier line every fifth square, tinted with the flavor */
   background:
-    radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--ink-h) 9%, transparent) 0 4px, transparent 5px) 0 0 / 56px 56px,
+    linear-gradient(color-mix(in srgb, var(--ink-h) 16%, transparent) 1px, transparent 1px) -1px -1px / 120px 120px,
+    linear-gradient(90deg, color-mix(in srgb, var(--ink-h) 16%, transparent) 1px, transparent 1px) -1px -1px / 120px 120px,
+    linear-gradient(color-mix(in srgb, var(--ink-h) 8%, transparent) 1px, transparent 1px) -1px -1px / 24px 24px,
+    linear-gradient(90deg, color-mix(in srgb, var(--ink-h) 8%, transparent) 1px, transparent 1px) -1px -1px / 24px 24px,
     var(--bg);
   transition: background-color .5s ease;
 }
@@ -30,9 +46,9 @@ body { background: #0b061c; }
 .lead {
   position: relative;
   z-index: 2;
-  max-width: 760px;
+  max-width: 980px;
   margin: 0 auto;
-  padding: calc(var(--nav-h) + clamp(28px, 6vh, 64px)) var(--gutter) 0;
+  padding: calc(var(--nav-h) + 14px + clamp(28px, 6vh, 64px)) var(--gutter) 0;
   text-align: center;
 }
 .lead__status {
@@ -50,10 +66,11 @@ body { background: #0b061c; }
 .lead__status .status-dot { animation: none; box-shadow: none; border: 2px solid var(--ink-h); }
 .lead__title {
   margin: 0;
-  font: 700 clamp(2.6rem, 7vw, 4.8rem)/1.05 Georgia, "Times New Roman", serif;
+  font: 700 clamp(2.3rem, 5.6vw, 4.2rem)/1.05 Georgia, "Times New Roman", serif;
   letter-spacing: -.01em;
+  text-wrap: balance;
 }
-.lead__sub { margin: 14px auto 0; max-width: 46ch; font-size: 1.1rem; }
+.lead__sub { margin: 12px auto 0; max-width: 46ch; font-size: 1.1rem; }
 .lead__meta {
   display: flex;
   flex-wrap: wrap;
@@ -234,3 +251,67 @@ body { background: #0b061c; }
   .fan__card, .hero--fan { transition-duration: .01s; }
   .deco { animation: none; }
 }
+
+/* ---- floating menu bar: a rounded pill styled like the open-now tag ---- */
+.site-nav {
+  inset: 14px var(--gutter) auto;
+  max-width: 1180px;
+  margin-inline: auto;
+  height: 62px;
+  border: 2px solid var(--ink-h);
+  border-radius: 999px;
+  background: color-mix(in srgb, #ffffff 72%, var(--bg));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 8px 24px rgba(29, 15, 5, .1);
+  transition: background-color .5s ease, border-color .5s ease;
+}
+.site-nav__inner { max-width: none; padding-inline: 10px 10px; padding-left: 22px; }
+.site-nav .brand__logo { filter: brightness(0); opacity: .88; }
+.site-nav nav { margin-inline: auto; }
+.site-nav .brand { margin-right: 0; }
+.site-nav .nav-links a { color: var(--ink-h); font-family: "DM Sans", system-ui, sans-serif; }
+.site-nav .nav-links a:hover { background: color-mix(in srgb, var(--ink-h) 10%, transparent); color: var(--ink-h); }
+.nav-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: var(--ink-h);
+  color: #ffffff;
+  font: 700 .95rem/1 "DM Sans", system-ui, sans-serif;
+  text-decoration: none;
+  transition: background-color .5s ease;
+}
+.nav-pill:hover { color: #ffffff; text-decoration: underline; }
+.site-nav :focus-visible { outline-color: var(--ink-h); }
+.site-nav .nav-toggle { color: var(--ink-h); border-color: color-mix(in srgb, var(--ink-h) 45%, transparent); font-family: "DM Sans", system-ui, sans-serif; }
+@media (max-width: 960px) {
+  .site-nav__inner { padding-left: 18px; }
+  .site-nav .brand { margin-right: auto; }
+  .site-nav nav { margin-inline: 0; }
+  .nav-pill { order: 2; }
+  .site-nav .nav-links {
+    top: calc(100% + 10px);
+    border: 2px solid var(--ink-h);
+    border-radius: 26px;
+    background: color-mix(in srgb, #ffffff 92%, var(--bg));
+    padding: 10px;
+  }
+}
+@media (max-width: 560px) {
+  .nav-pill { display: none; }
+}
+
+/* ---- placeholder section on white ---- */
+.ph { background: #ffffff; color: #1d1a17; font-family: "DM Sans", system-ui, sans-serif; }
+.ph__inner { max-width: 1120px; margin: 0 auto; padding: clamp(64px, 10vw, 120px) var(--gutter); }
+.ph__eyebrow { margin: 0 0 8px; font-weight: 700; font-size: .85rem; letter-spacing: .14em; text-transform: uppercase; color: #5c5650; }
+.ph__title { margin: 0; font: 700 clamp(2rem, 4.5vw, 3.2rem)/1.1 Georgia, "Times New Roman", serif; color: #1d1a17; letter-spacing: -.01em; }
+.ph__lede { margin: 14px 0 0; max-width: 56ch; font-size: 1.1rem; color: #3d3833; }
+.ph__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 40px; }
+.ph-card { padding: 16px 16px 22px; border: 1px solid #e6e1da; border-radius: 26px; background: #ffffff; }
+.ph-card__img { aspect-ratio: 4 / 3; border-radius: 18px; background: #efebe5; }
+.ph-card h3 { margin: 16px 4px 6px; font: 700 1.3rem/1.2 Georgia, "Times New Roman", serif; color: #1d1a17; }
+.ph-card p { margin: 0 4px; color: #3d3833; }
