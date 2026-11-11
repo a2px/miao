@@ -480,7 +480,7 @@ body { background: #0b061c; }
   padding: calc(var(--w) * .08);
   gap: calc(var(--w) * .06);
   /* neobrutalist offset: a solid copy of the card in the flavor's color, outlined like the card */
-  --off: calc(var(--w) * .065);
+  --off: calc(var(--w) * .0455);
   box-shadow: var(--off) var(--off) 0 var(--c), var(--off) var(--off) 0 2px #4a3520;
 }
 .fan__name { color: #1d0f05; }
@@ -551,7 +551,7 @@ body { background: #0b061c; }
   background: #ffffff;
   padding: 12px;
   /* same solid offset shadow as the cards, in the picked drink's color */
-  box-shadow: 16px 16px 0 var(--pick), 16px 16px 0 2px #4a3520;
+  box-shadow: 11px 11px 0 var(--pick), 11px 11px 0 2px #4a3520;
   transition: box-shadow .5s ease;
 }
 .visit2__map iframe { width: 100%; height: 100%; border: 0; border-radius: 16px; display: block; }
@@ -575,7 +575,7 @@ body { background: #0b061c; }
 .map-pin img { width: 70%; height: 70%; transform: rotate(45deg); }
 @media (max-width: 860px) {
   .visit2__inner { grid-template-columns: 1fr; }
-  .visit2__map { box-shadow: 10px 10px 0 var(--pick), 10px 10px 0 2px #4a3520; margin-right: 12px; }
+  .visit2__map { box-shadow: 7px 7px 0 var(--pick), 7px 7px 0 2px #4a3520; margin-right: 12px; }
   .visit2__inner { padding-top: 24px; }
 }
 /* keep stars from twinkling through the words: the text sits on a soft patch of plain sky */
