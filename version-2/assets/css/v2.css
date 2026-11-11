@@ -2,7 +2,7 @@
    Version 2 hero: a fan of flavor cards on a starry night. The middle card is the pick,
    and its color goes to the heading and the drawn stars.
    ========================================================= */
-:root { --bg: #fbf8f4; --ink-h: #2a1a10; --sky-ink: #ece8f4; --pick: #d9a774; }
+:root { --bg: #fbf8f4; --ink-h: #2a1a10; --sky-ink: #ece8f4; --pick: #f5df6e; }
 :root[data-flavor="thai"] { --pick: #f6a65a; }
 :root[data-flavor="taro"] { --pick: #c9a7ff; }
 :root[data-flavor="jasmine"] { --pick: #f5df6e; }

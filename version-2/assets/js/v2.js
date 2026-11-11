@@ -156,7 +156,7 @@
   const cards = $$("[data-card]");
   const picked = $("[data-picked]");
   const n = cards.length;
-  let at = cards.findIndex((c) => c.dataset.card === "assam");
+  let at = cards.findIndex((c) => c.dataset.card === "jasmine");
 
   const render = () => {
     cards.forEach((card, i) => {
