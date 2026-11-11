@@ -286,7 +286,7 @@ body { background: #0b061c; }
 }
 /* lined notebook paper: pale blue rules and a red margin line down the left */
 .ph__inner {
-  --rule: 34px;
+  --rule: 46px;
   --margin: 64px;
   max-width: 1160px;
   border: 4px solid #4a8fe7;
@@ -438,7 +438,7 @@ body { background: #0b061c; }
 
 /* ---- real notebook paper: a blank band across the top, and the heading text written on the rules ---- */
 .ph__inner {
-  --band: calc(var(--rule) * 4);
+  --band: calc(var(--rule) * 3);
   background:
     linear-gradient(90deg, transparent calc(var(--margin) - 1px), #e9828f calc(var(--margin) - 1px), #e9828f calc(var(--margin) + 1px), transparent calc(var(--margin) + 1px)),
     linear-gradient(#fffefb, #fffefb) 0 0 / 100% var(--band) no-repeat,
@@ -446,16 +446,18 @@ body { background: #0b061c; }
     #fffefb;
   padding-top: var(--band);
 }
-.ph__inner { --nudge-eyebrow: 9px; --nudge-title: 13px; --nudge-lede: 7px; }
+.ph__inner { --nudge-title: 6px; --nudge-lede: 13px; }
 .ph__head { align-items: start; }
 .ph__head .doodle--laptop { align-self: center; }
 /* every line of text takes a whole number of rules; the nudge sets each baseline down onto its rule */
 .ph__eyebrow { margin: 0; line-height: var(--rule); position: relative; top: var(--nudge-eyebrow, 0px); }
-.ph__title { margin: 0; line-height: calc(var(--rule) * 2); position: relative; top: var(--nudge-title, 0px); }
+.ph__title { margin: 0; font-size: clamp(1.75rem, 3.4vw, 2.5rem); line-height: var(--rule); position: relative; top: var(--nudge-title, 0px); }
 .ph__lede { margin: 0; line-height: var(--rule); position: relative; top: var(--nudge-lede, 0px); }
 .ph__grid { margin-top: calc(var(--rule) * 2); }
+.ph__lede { font-size: 1.15rem; }
 @media (max-width: 700px) {
-  .ph__inner { --band: calc(var(--rule) * 3); padding-top: var(--band); }
-  .ph__inner { --nudge-title: 4px; }
-  .ph__title { line-height: var(--rule); font-size: 1.75rem; }
+  .ph__inner { --rule: 36px; --band: calc(var(--rule) * 3); padding-top: var(--band); }
+  .ph__inner { --nudge-title: 6px; --nudge-lede: 8px; }
+  .ph__title { font-size: 1.6rem; }
+  .ph__lede { font-size: 1.05rem; }
 }
