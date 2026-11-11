@@ -7,6 +7,8 @@
 :root[data-flavor="jasmine"] { --bg: #fbf2bf; --ink-h: #463600; }
 :root[data-flavor="assam"] { --bg: #eedccb; --ink-h: #3f2410; }
 :root[data-flavor="refresher"] { --bg: #d6ecfa; --ink-h: #0f3550; }
+/* the older flavor-picker colors in style.css are set on the hero itself; take this page's colors from the root instead */
+.hero.hero--fan, .hero.hero--fan[data-flavor] { --bg: inherit; }
 
 /* Georgia for titles, DM Sans for everything else */
 .hero--fan, .mini-footer { font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif; }
