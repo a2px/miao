@@ -108,10 +108,10 @@
 
   const render = () => {
     cards.forEach((card, i) => {
-      // offset from the middle card, wrapped into -1, 0, 1, 2 (2 waits hidden behind the middle)
+      // offset from the middle card, wrapped so it runs -2 .. 2 (with more cards, the rest wait behind the middle)
       let o = (((i - at) % n) + n) % n;
       if (o > n / 2) o -= n;
-      const back = Math.abs(o) >= 2;
+      const back = Math.abs(o) > 2;
       card.style.setProperty("--o", back ? 0 : o);
       card.style.setProperty("--d", back ? 0 : Math.abs(o));
       card.classList.toggle("is-center", o === 0);
