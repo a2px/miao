@@ -227,5 +227,16 @@
     lazyDoodles.forEach((el) => el.classList.add("is-drawing"));
   }
 
+  // The build-your-drink notes pop in once their row scrolls into view.
+  const popRows = $$("[data-pop-in]");
+  if ("IntersectionObserver" in window) {
+    const popIo = new IntersectionObserver((entries) => entries.forEach((en) => {
+      if (en.isIntersecting) { en.target.classList.add("is-in"); popIo.unobserve(en.target); }
+    }), { threshold: 0.3 });
+    popRows.forEach((el) => popIo.observe(el));
+  } else {
+    popRows.forEach((el) => el.classList.add("is-in"));
+  }
+
   render();
 })();

@@ -875,3 +875,22 @@ body { background: #0b061c; }
 .ph-card h3 { margin-bottom: 12px; }
 .ph-card p { line-height: 1.55; }
 .ph__grid { align-items: stretch; }
+
+/* build steps pop in one after another once scrolled into view: small, overshoot big, settle.
+   Uses the separate scale property so each note keeps its own tilt. */
+.js .steps2[data-pop-in]:not(.is-in) .step2 { scale: 0; opacity: 0; }
+.steps2.is-in .step2 { animation: note-pop .7s cubic-bezier(.3, 1.4, .5, 1) both; }
+.steps2.is-in .step2:nth-child(2) { animation-delay: .25s; }
+.steps2.is-in .step2:nth-child(3) { animation-delay: .5s; }
+.steps2.is-in .step2:nth-child(4) { animation-delay: .75s; }
+@keyframes note-pop {
+  0% { scale: .25; opacity: 0; }
+  45% { scale: 1.14; opacity: 1; }
+  70% { scale: .95; }
+  85% { scale: 1.03; }
+  100% { scale: 1; opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .steps2[data-pop-in]:not(.is-in) .step2 { scale: 1; opacity: 1; }
+  .steps2.is-in .step2 { animation: none; }
+}
