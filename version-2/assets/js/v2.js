@@ -8,6 +8,7 @@
   $$("[data-address-short]").forEach((el) => (el.textContent = a.short));
   $$("[data-year]").forEach((el) => (el.textContent = new Date().getFullYear()));
   $$("[data-address-line1]").forEach((el) => (el.textContent = a.street));
+  $$("[data-address-full]").forEach((el) => (el.textContent = `${a.street}, ${a.city}, ${a.region} ${a.postal}`));
   $$("[data-address-line2]").forEach((el) => (el.textContent = `${a.city}, ${a.region} ${a.postal}`));
 
   /* ---- Find us: directions links and the map, centred on the shop ---- */
@@ -40,6 +41,86 @@
     path.style.setProperty("--len", String(Math.ceil(path.getTotalLength()) + 2));
   });
   document.documentElement.classList.add("doodles-ready");
+
+  /* ---- hours: today's row and the open/closed line, in the cafe's time zone ---- */
+  const DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const toMin = (t) => { const [h, m] = t.split(":").map(Number); return h * 60 + m; };
+  const fmt = (t) => {
+    let [h, m] = t.split(":").map(Number);
+    h %= 24;
+    return `${h % 12 === 0 ? 12 : h % 12}:${String(m).padStart(2, "0")} ${h < 12 ? "AM" : "PM"}`;
+  };
+  const windowFor = (day) => {
+    const o = toMin(cafe.hours[day].open);
+    let c = toMin(cafe.hours[day].close);
+    if (c <= o) c += 1440;
+    return [o, c];
+  };
+  const hoursStatus = () => {
+    const parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: cafe.timeZone, weekday: "long", hour: "2-digit", minute: "2-digit", hourCycle: "h23",
+    }).formatToParts(new Date());
+    const get = (type) => parts.find((p) => p.type === type).value;
+    const day = DAYS.indexOf(get("weekday"));
+    const minutes = Number(get("hour")) * 60 + Number(get("minute"));
+    const yesterday = (day + 6) % 7;
+    if (windowFor(yesterday)[1] > 1440 && minutes + 1440 < windowFor(yesterday)[1]) {
+      return { open: true, businessDay: yesterday, closes: cafe.hours[yesterday].close };
+    }
+    const [o, c] = windowFor(day);
+    if (minutes >= o && minutes < c) return { open: true, businessDay: day, closes: cafe.hours[day].close };
+    if (minutes < o) return { open: false, businessDay: day, opens: cafe.hours[day].open, when: "today" };
+    return { open: false, businessDay: day, opens: cafe.hours[(day + 1) % 7].open, when: "tomorrow" };
+  };
+  const hoursBody = $("[data-hours-table] tbody");
+  const renderHours = () => {
+    if (!hoursBody) return;
+    const s = hoursStatus();
+    hoursBody.innerHTML = "";
+    [1, 2, 3, 4, 5, 6, 0].forEach((d) => {
+      const tr = document.createElement("tr");
+      const th = document.createElement("th");
+      th.scope = "row";
+      th.textContent = DAYS[d];
+      const td = document.createElement("td");
+      td.textContent = `${fmt(cafe.hours[d].open)} – ${fmt(cafe.hours[d].close)}`;
+      if (d === s.businessDay) {
+        tr.className = "is-today";
+        const tag = document.createElement("span");
+        tag.className = "today-tag";
+        tag.textContent = "Today";
+        th.append(" ", tag);
+      }
+      tr.append(th, td);
+      hoursBody.append(tr);
+    });
+    $("[data-status-long]").textContent = s.open ? `Open until ${fmt(s.closes)}` : `Closed right now. We open ${s.when} at ${fmt(s.opens)}.`;
+    $("[data-status-banner]").dataset.open = String(s.open);
+  };
+  renderHours();
+  setInterval(renderHours, 60 * 1000);
+
+  /* ---- Instagram carousel: arrow buttons scroll one polaroid at a time ---- */
+  const track = $("[data-carousel-track]");
+  const prevBtn = $("[data-carousel-prev]");
+  const nextBtn = $("[data-carousel-next]");
+  if (track) {
+    const stepSize = () => {
+      const first = track.firstElementChild;
+      const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+      return first ? first.getBoundingClientRect().width + gap : track.clientWidth;
+    };
+    const smooth = () => (window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth");
+    const updateCarousel = () => {
+      prevBtn.disabled = track.scrollLeft <= 2;
+      nextBtn.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2;
+    };
+    prevBtn.addEventListener("click", () => track.scrollBy({ left: -stepSize(), behavior: smooth() }));
+    nextBtn.addEventListener("click", () => track.scrollBy({ left: stepSize(), behavior: smooth() }));
+    track.addEventListener("scroll", () => requestAnimationFrame(updateCarousel), { passive: true });
+    window.addEventListener("resize", updateCarousel, { passive: true });
+    updateCarousel();
+  }
 
   /* ---- how far away (worked out on the visitor's device; nothing is sent anywhere) ---- */
   const hudDistance = $("[data-distance-hud]");
