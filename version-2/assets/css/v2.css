@@ -392,3 +392,15 @@ body { background: #0b061c; }
   .doodle__line { animation: none; stroke-dashoffset: 0; }
   .doodle__fill { animation: none; opacity: .9; }
 }
+
+/* ---- placeholder section header: text on the left, a pencil laptop on the right ---- */
+.ph__head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: center; }
+.doodle--laptop { width: clamp(180px, 22vw, 280px); height: auto; overflow: visible; transform: rotate(-4deg); }
+.doodle--laptop .doodle__line { stroke-width: 6; }
+/* waits until the section scrolls into view, then draws itself */
+[data-draw-on-view] .doodle__line, [data-draw-on-view] .doodle__fill { animation-play-state: paused; }
+[data-draw-on-view].is-drawing .doodle__line, [data-draw-on-view].is-drawing .doodle__fill { animation-play-state: running; }
+@media (max-width: 700px) {
+  .ph__head { grid-template-columns: 1fr; }
+  .doodle--laptop { width: 170px; justify-self: end; margin-top: -8px; }
+}

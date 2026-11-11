@@ -132,5 +132,16 @@
   });
   fan.addEventListener("pointercancel", () => { startX = null; });
 
+  // Pencil doodles further down the page draw themselves once they scroll into view.
+  const lazyDoodles = $$("[data-draw-on-view]");
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver((entries) => entries.forEach((en) => {
+      if (en.isIntersecting) { en.target.classList.add("is-drawing"); io.unobserve(en.target); }
+    }), { threshold: 0.4 });
+    lazyDoodles.forEach((el) => io.observe(el));
+  } else {
+    lazyDoodles.forEach((el) => el.classList.add("is-drawing"));
+  }
+
   render();
 })();
