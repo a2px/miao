@@ -922,3 +922,6 @@ body { background: #0b061c; }
 }
 .visit2-paper .ph__inner { --band: calc(var(--rule) * 2 - 2px); --nudge-visit: 5px; }
 @media (max-width: 700px) { .visit2-paper .ph__inner { --nudge-visit: 6px; } }
+/* hours: title block sits at the top left, level with the top of the card */
+.hours2__grid { align-items: start; }
+.hours2__grid .sky-title { margin-top: -6px; }
