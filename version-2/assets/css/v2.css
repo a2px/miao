@@ -229,7 +229,8 @@ body { background: #0b061c; }
   height: 62px;
   border: 2px solid var(--ink-h);
   border-radius: 999px;
-  background: color-mix(in srgb, #ffffff 72%, var(--bg));
+  /* tinted with the picked drink, see-through so the sky shows behind it */
+  background: color-mix(in srgb, var(--pick) 78%, transparent);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   box-shadow: 0 8px 24px rgba(29, 15, 5, .1);
@@ -434,3 +435,27 @@ body { background: #0b061c; }
 .lead__drive { color: var(--sky-ink); font: inherit; font-weight: 700; font-size: .95rem; cursor: pointer; min-height: 40px; }
 .lead__drive:hover { background: rgba(255, 255, 255, .16); }
 .lead__drive .icon { width: 1.05em; height: 1.05em; }
+
+/* ---- real notebook paper: a blank band across the top, and the heading text written on the rules ---- */
+.ph__inner {
+  --band: calc(var(--rule) * 4);
+  background:
+    linear-gradient(90deg, transparent calc(var(--margin) - 1px), #e9828f calc(var(--margin) - 1px), #e9828f calc(var(--margin) + 1px), transparent calc(var(--margin) + 1px)),
+    linear-gradient(#fffefb, #fffefb) 0 0 / 100% var(--band) no-repeat,
+    repeating-linear-gradient(to bottom, transparent 0 calc(var(--rule) - 1px), #a9c8ee calc(var(--rule) - 1px) var(--rule)),
+    #fffefb;
+  padding-top: var(--band);
+}
+.ph__inner { --nudge-eyebrow: 9px; --nudge-title: 13px; --nudge-lede: 7px; }
+.ph__head { align-items: start; }
+.ph__head .doodle--laptop { align-self: center; }
+/* every line of text takes a whole number of rules; the nudge sets each baseline down onto its rule */
+.ph__eyebrow { margin: 0; line-height: var(--rule); position: relative; top: var(--nudge-eyebrow, 0px); }
+.ph__title { margin: 0; line-height: calc(var(--rule) * 2); position: relative; top: var(--nudge-title, 0px); }
+.ph__lede { margin: 0; line-height: var(--rule); position: relative; top: var(--nudge-lede, 0px); }
+.ph__grid { margin-top: calc(var(--rule) * 2); }
+@media (max-width: 700px) {
+  .ph__inner { --band: calc(var(--rule) * 3); padding-top: var(--band); }
+  .ph__inner { --nudge-title: 4px; }
+  .ph__title { line-height: var(--rule); font-size: 1.75rem; }
+}
