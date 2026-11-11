@@ -428,3 +428,4 @@ body { background: #0b061c; }
 .lead__title { color: var(--pick); transition: color .5s ease; }
 .doodle--star .doodle__line { stroke: #ffffff; }
 .doodle--star .doodle__fill { display: none; }
+.nowrap { white-space: nowrap; }
