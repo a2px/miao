@@ -863,3 +863,8 @@ body { background: #0b061c; }
 .polaroid:focus-within { outline: 3px solid #ffffff; outline-offset: 5px; }
 .polaroid__link:focus-visible { outline: none; }
 @media (prefers-reduced-motion: reduce) { .polaroid { transition: none; } }
+/* Instagram cards: same roomy padding and rounding as the drink and review cards */
+.polaroid { padding: 20px 20px 22px; border-radius: 22px; }
+.polaroid__img { border-radius: 14px; }
+.polaroid figcaption { margin-top: 16px; padding: 0 2px; }
+.polaroid__link::after { border-radius: 22px; }
