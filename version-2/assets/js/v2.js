@@ -136,24 +136,6 @@
     if (e.key === "ArrowLeft") { e.preventDefault(); step(-1); }
   });
 
-  // Scrolling over the cards turns them: one card per wheel notch, and a trackpad
-  // swipe counts once instead of spinning through every flavor.
-  let acc = 0;
-  let lockedUntil = 0;
-  fan.addEventListener("wheel", (e) => {
-    // Only the middle card turns the deck; scrolling anywhere else moves the page as usual.
-    if (!e.target.closest(".fan__card.is-center")) return;
-    e.preventDefault();
-    const now = performance.now();
-    if (now < lockedUntil) return;
-    acc += Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
-    if (Math.abs(acc) >= 30) {
-      step(acc > 0 ? 1 : -1);
-      acc = 0;
-      lockedUntil = now + 320;
-    }
-  }, { passive: false });
-
   // Swipe on phones.
   let startX = null;
   fan.addEventListener("pointerdown", (e) => { if (e.pointerType !== "mouse") startX = e.clientX; });
@@ -164,13 +146,6 @@
     if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1);
   });
   fan.addEventListener("pointercancel", () => { startX = null; });
-
-  // The "More below" nudge stays in the corner until the visitor has scrolled past the cards.
-  const more = $(".more-below");
-  const toggleMore = () => { more.hidden = window.scrollY > hero.offsetHeight - window.innerHeight * 0.9; };
-  window.addEventListener("scroll", toggleMore, { passive: true });
-  window.addEventListener("resize", toggleMore, { passive: true });
-  toggleMore();
 
   render();
 })();
