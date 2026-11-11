@@ -930,3 +930,6 @@ body { background: #0b061c; }
 .reviews2__title { display: inline-flex; align-items: center; gap: 10px; }
 .doodle--bang { width: clamp(58px, 6.5vw, 84px); height: auto; overflow: visible; margin-top: -10px; }
 .doodle--bang .doodle__line { stroke: #ffffff; stroke-width: 8.5; }
+/* exclamation dots: round, and not roughened so they stay circles */
+.doodle--bang path:nth-child(2) { filter: none; stroke-linecap: round; }
+.doodle--bang path:nth-child(2) { stroke-width: 7.5; opacity: .95; }
