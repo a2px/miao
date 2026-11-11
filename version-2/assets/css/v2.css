@@ -229,8 +229,8 @@ body { background: #0b061c; }
   height: 62px;
   border: 2px solid var(--ink-h);
   border-radius: 999px;
-  /* tinted with the picked drink, see-through so the sky shows behind it */
-  background: color-mix(in srgb, var(--pick) 78%, transparent);
+  /* filled with the picked drink's color */
+  background: var(--pick);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   box-shadow: 0 8px 24px rgba(29, 15, 5, .1);
