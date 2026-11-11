@@ -1,4 +1,4 @@
-/* Miao, version 2: header, hours status, distance, and the looping flavor card fan. */
+/* Miao, version 2: header, drive distance, pencil doodles, and the looping flavor card fan. */
 (() => {
   const cafe = window.MIAO;
   const $ = (sel, el = document) => el.querySelector(sel);
@@ -26,42 +26,6 @@
   });
   document.documentElement.classList.add("doodles-ready");
 
-  /* ---- open / closed, in the cafe's time zone ---- */
-  const DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  const toMin = (t) => { const [h, m] = t.split(":").map(Number); return h * 60 + m; };
-  const fmt = (t) => {
-    let [h, m] = t.split(":").map(Number);
-    h %= 24;
-    return `${h % 12 === 0 ? 12 : h % 12}:${String(m).padStart(2, "0")} ${h < 12 ? "AM" : "PM"}`;
-  };
-  const windowFor = (day) => {
-    const o = toMin(cafe.hours[day].open);
-    let c = toMin(cafe.hours[day].close);
-    if (c <= o) c += 1440;
-    return [o, c];
-  };
-  const hoursStatus = () => {
-    const parts = new Intl.DateTimeFormat("en-US", {
-      timeZone: cafe.timeZone, weekday: "long", hour: "2-digit", minute: "2-digit", hourCycle: "h23",
-    }).formatToParts(new Date());
-    const get = (type) => parts.find((p) => p.type === type).value;
-    const day = DAYS.indexOf(get("weekday"));
-    const minutes = Number(get("hour")) * 60 + Number(get("minute"));
-    const yesterday = (day + 6) % 7;
-    const yc = windowFor(yesterday)[1];
-    if (yc > 1440 && minutes + 1440 < yc) return { open: true, closes: cafe.hours[yesterday].close };
-    const [o, c] = windowFor(day);
-    if (minutes >= o && minutes < c) return { open: true, closes: cafe.hours[day].close };
-    return { open: false, opens: minutes < o ? cafe.hours[day].open : cafe.hours[(day + 1) % 7].open };
-  };
-  const renderStatus = () => {
-    const s = hoursStatus();
-    $("[data-status-text]").textContent = s.open ? `Open now · until ${fmt(s.closes)}` : `Closed · opens ${fmt(s.opens)}`;
-    $("[data-status-hud]").dataset.open = String(s.open);
-  };
-  renderStatus();
-  setInterval(renderStatus, 60 * 1000);
-
   /* ---- how far away (worked out on the visitor's device; nothing is sent anywhere) ---- */
   const hudDistance = $("[data-distance-hud]");
   const miles = (lat1, lng1, lat2, lng2) => {
@@ -73,15 +37,16 @@
   const showDistance = (pos) => {
     const mi = miles(pos.coords.latitude, pos.coords.longitude, cafe.coords.lat, cafe.coords.lng);
     if (mi < 0.05) { hudDistance.textContent = "You're here. Come on in!"; return; }
+    if (mi > 300) { hudDistance.textContent = `${Math.round(mi).toLocaleString()} mi away. Save us for your next Dallas trip`; return; }
     const road = mi * 1.3;
     const drive = Math.max(1, Math.round((Math.min(road, 3) / 25) * 60 + (Math.max(0, road - 3) / 45) * 60 + 3));
     const t = drive < 60 ? `${drive} min` : `${Math.floor(drive / 60)} hr${drive % 60 ? ` ${drive % 60} min` : ""}`;
-    hudDistance.textContent = `${mi < 10 ? mi.toFixed(1) : Math.round(mi).toLocaleString()} mi away · ~${t} drive`;
+    hudDistance.textContent = `About a ${t} drive · ${mi < 10 ? mi.toFixed(1) : Math.round(mi).toLocaleString()} mi away`;
   };
   const locate = () => {
-    if (!("geolocation" in navigator)) { hudDistance.textContent = "Location is off"; return; }
+    if (!("geolocation" in navigator)) { hudDistance.textContent = "Location is off on this browser"; return; }
     hudDistance.textContent = "Finding you…";
-    navigator.geolocation.getCurrentPosition(showDistance, () => { hudDistance.textContent = "Location is off"; },
+    navigator.geolocation.getCurrentPosition(showDistance, () => { hudDistance.textContent = "Location is off. Tap to try again"; },
       { enableHighAccuracy: false, timeout: 12000, maximumAge: 5 * 60 * 1000 });
   };
   $$("[data-locate]").forEach((b) => b.addEventListener("click", locate));
