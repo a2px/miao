@@ -933,3 +933,6 @@ body { background: #0b061c; }
 /* exclamation dots: round, and not roughened so they stay circles */
 .doodle--bang path:nth-child(2) { filter: none; stroke-linecap: round; }
 .doodle--bang path:nth-child(2) { stroke-width: 7.5; opacity: .95; }
+/* menu paper: half the blank band, title written on the first blue line */
+.menu2 .ph__inner { --band: calc(var(--rule) * 2 - 2px); padding-top: var(--rule); }
+@media (max-width: 700px) { .menu2 .ph__inner { --band: calc(var(--rule) * 2 - 2px); padding-top: var(--rule); } }
